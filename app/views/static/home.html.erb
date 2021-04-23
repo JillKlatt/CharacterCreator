@@ -1,9 +1,14 @@
 
 <h1>Your Dashboard <%= current_user.name %></h1>
 
+<!--Maybe some sort of dropdown like, 'view your creations with characters, weapons, classes, and races?-->
+
 <%= link_to 'View Your Characters', characters_path %>
 <br>
 <%= link_to 'View Your Weapons', weapons_path %>
 <br>
-
+<% link_to 'View Your Campaigns', campaigns_path %>
+<br>
+<%= link_to 'View Your Adventures?', adventures_path %>
+<br>
 <%= link_to 'Logout', logout_path, method: 'delete' %>
