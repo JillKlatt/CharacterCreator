@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate([:user][:password])
             flash[:message] = "Welcome '#{@user.name!}"
             session[:user_id] = @user.id
-            redirect_to characters_path
+            redirect_to '/'
         else
             flash[:message] = "#{@user.errors.full_messages.join(', ')}"
             render :new

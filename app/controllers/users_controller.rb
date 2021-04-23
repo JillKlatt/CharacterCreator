@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         if @user.save
             flash[:message] = "Let's get creating!"
             session[:user_id] = @user.id 
-            redirect_to characters_path
+            redirect_to '/'
         else
             render :new
         end

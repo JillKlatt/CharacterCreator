@@ -1,5 +1,7 @@
 class RacesController < ApplicationRecord
 
+        #display available races, find or create by new ones
+
     def index
         @races = Race.all
     end
