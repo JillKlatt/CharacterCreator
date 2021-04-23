@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_011023) do
+ActiveRecord::Schema.define(version: 2021_04_23_182312) do
+
+  create_table "adventures", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "character_id"
+    t.integer "campaign_id"
+    t.index ["campaign_id"], name: "index_adventures_on_campaign_id"
+    t.index ["character_id"], name: "index_adventures_on_character_id"
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string "name"
+    t.datetime "schedule"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "adventure_id"
+    t.index ["adventure_id"], name: "index_campaigns_on_adventure_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -61,5 +80,8 @@ ActiveRecord::Schema.define(version: 2021_04_23_011023) do
     t.index ["character_id"], name: "index_weapons_on_character_id"
   end
 
+  add_foreign_key "adventures", "campaigns"
+  add_foreign_key "adventures", "characters"
+  add_foreign_key "campaigns", "adventures"
   add_foreign_key "characters", "users"
 end
