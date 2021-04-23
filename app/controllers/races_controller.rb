@@ -16,4 +16,14 @@ class RacesController < ApplicationRecord
                 redirect_to :new
             end
     end
+
+    def show
+        @race = Race.find_by(id: params[:id])
+    end
+
+    private
+
+    def race_params
+        prarams.require[:race].permit(:name, :trait)
+    end
 end
