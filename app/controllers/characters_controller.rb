@@ -1,4 +1,6 @@
 class CharactersController < ApplicationRecord
+    
+    #before_action :set_characters, only: [:index]
 
     def index
         @characters = Character.all
@@ -38,6 +40,10 @@ class CharactersController < ApplicationRecord
 
     def character_params
         params.require(:character).permit(:name, :age, :description, :category_id, :race_id, category_attributes: [:name, :trait], race_attributes: [:name, :trait])
+    end
+
+    def set_characters
+        @characters = current_user.characters
     end
 
 end
