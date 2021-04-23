@@ -1,7 +1,7 @@
 class CharactersController < ApplicationRecord
 
     def index
-        @characters = current_user.characters
+        @characters = Character.all
     end
 
     def new
@@ -37,7 +37,7 @@ class CharactersController < ApplicationRecord
     private
 
     def character_params
-        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :category_attributes: [:name, :trait], :race_attributes: [:name, :trait])
+        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, category_attributes: [:name, :trait], race_attributes: [:name, :trait])
     end
 
 end
