@@ -50,11 +50,15 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, category_attributes: :id, race_attributes: :id)
+        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, category_attributes: [:name, :trait], race_attributes: [:name, :trait])
     end
 
     def set_characters
         @characters = current_user.characters
+    end
+
+    def set_campaign
+        @campaign = Campaign.find_by(id: params[:id])
     end
 
 end
