@@ -1,14 +1,16 @@
 require 'pry'
 
 class CharactersController < ApplicationController
-    
+    before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update]
     #before_action :set_characters, only: [:index]
+    #before_action :set_campaign, only: [:index, :new, :create]
 
     def index
         @characters = Character.all
     end
 
     def new
+        
         @character = Character.new
         @races = Race.all
         @categories = Category.all
@@ -19,6 +21,7 @@ class CharactersController < ApplicationController
         binding.pry
         @character.category_id = params[:character][:category_id][1]
         @character.race_id = params[:character][:race_id][1]
+        @character.user_id = current_user.id
 
         if @character.save
                redirect_to character_path(@character)
@@ -45,6 +48,12 @@ class CharactersController < ApplicationController
 
     def show
         @character = Character.find_by(id: params[:id])
+    end
+
+    def destroy
+        @character = Character.find_by(id: params[:id])
+        @character.destroy
+        redirect_to characters_path
     end
 
     private

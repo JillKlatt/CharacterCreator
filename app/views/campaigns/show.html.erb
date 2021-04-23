@@ -6,3 +6,10 @@
 <% @campaign.characters.each do |character| %>
     <%= character.name %>
 <% end %>
+
+
+<%= link_to 'Edit Character', edit_character_path(@character) %>
+<br>
+<%= link_to 'Delete Character', destroy_character_path(@character) %>
+<br>
+<%= link_to 'View All Characters', characters_path %>
