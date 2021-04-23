@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_182312) do
+ActiveRecord::Schema.define(version: 2021_04_23_195637) do
 
   create_table "adventures", force: :cascade do |t|
     t.string "name"
@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(version: 2021_04_23_182312) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string "name"
-    t.datetime "schedule"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "adventure_id"
-    t.index ["adventure_id"], name: "index_campaigns_on_adventure_id"
+    t.integer "user_id"
+    t.string "schedule"
+    t.text "description"
+    t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -82,6 +83,6 @@ ActiveRecord::Schema.define(version: 2021_04_23_182312) do
 
   add_foreign_key "adventures", "campaigns"
   add_foreign_key "adventures", "characters"
-  add_foreign_key "campaigns", "adventures"
+  add_foreign_key "campaigns", "users"
   add_foreign_key "characters", "users"
 end
