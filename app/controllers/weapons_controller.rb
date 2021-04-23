@@ -1,4 +1,4 @@
-class WeaponsController < ApplicationRecord
+class WeaponsController < ApplicationController
     
     def index
         @weapons = Weapon.all

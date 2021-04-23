@@ -1,4 +1,4 @@
-class RacesController < ApplicationRecord
+class RacesController < ApplicationController
 
         #display available races, find or create by new ones
 
