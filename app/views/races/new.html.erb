@@ -1,0 +1,9 @@
+<h1>Create New Race</h1>
+
+<%= form_for @race do |f|%>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :trait %>
+    <%= f.text_field :trait %>
+    <% f.submit %>
+<% end %>
