@@ -1,2 +1,9 @@
 
 <h1>Your Dashboard <%= current_user.name %></h1>
+
+<%= link_to 'View Your Characters', characters_path %>
+<br>
+<%= link_to 'View Your Weapons', weapons_path %>
+<br>
+
+<%= link_to 'Logout', logout_path, method: 'delete' %>
