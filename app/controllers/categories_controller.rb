@@ -1,0 +1,3 @@
+class CategoriesController < ApplicationRecord
+
+end

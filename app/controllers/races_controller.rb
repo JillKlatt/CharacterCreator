@@ -1,0 +1,2 @@
+class RacesController < ApplicationRecord
+end

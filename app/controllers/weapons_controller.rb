@@ -1,0 +1,3 @@
+class WeaponsController < ApplicationRecord
+
+end
