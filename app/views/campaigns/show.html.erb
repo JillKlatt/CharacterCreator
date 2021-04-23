@@ -1,0 +1,8 @@
+<br>
+<br>
+<h2>One Specific Campaign:</h2>
+
+<%= @campaign.name%><br>
+<% @campaign.characters.each do |character| %>
+    <%= character.name %>
+<% end %>

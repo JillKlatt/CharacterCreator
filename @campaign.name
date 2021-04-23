@@ -1,0 +1,14 @@
+
+[1mFrom:[0m /home/jillk/Development/code/character-creator/app/controllers/campaigns_controller.rb:15 CampaignsController#create:
+
+    [1;34m12[0m: [32mdef[0m [1;34mcreate[0m 
+    [1;34m13[0m:     @campaign = [1;34;4mCampaign[0m.new(campaign_params)
+    [1;34m14[0m:     @campaign.user_id = current_user.id
+ => [1;34m15[0m:     binding.pry
+    [1;34m16[0m:     [32mif[0m @campaign.save
+    [1;34m17[0m:         redirect_to campaigns_path
+    [1;34m18[0m:     [32melse[0m 
+    [1;34m19[0m:         render [33m:new[0m
+    [1;34m20[0m:     [32mend[0m
+    [1;34m21[0m: [32mend[0m
+

@@ -1,0 +1,12 @@
+
+<br>
+<br>
+<h1>All Your Campaigns:</h1>
+
+<div>
+<ul>
+<%@campaigns.each do |campaign| %>
+<li><%= link_to campaign.name, campaign_path(campaign)%></li>
+<% end %>
+</ul>
+</div>

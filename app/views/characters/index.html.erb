@@ -1,5 +1,10 @@
 <h1>All Your Characters:</h1>
 
-<% @characters.each do |c| %>
-<%= c.name %>
-<% end %>
+
+<div>
+    <ul> 
+    <% @characters.each do |c| %>
+    <li><%= link_to c.name, character_path(c) %></li>
+    <% end %>
+    </ul>
+</div>

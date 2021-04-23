@@ -1,3 +1,10 @@
 <h1>One Specific Character</h1>
 
 <h2><%= @character.name %></h2>
+
+<div>
+     <%= @character.category.name %><%= @character.category.trait%><br>
+     <%= @character.race.name %>
+
+</div>
+<%= link_to 'View All Characters', characters_path %>

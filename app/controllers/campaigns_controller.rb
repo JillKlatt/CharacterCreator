@@ -11,11 +11,17 @@ class CampaignsController < ApplicationController
 
     def create 
         @campaign = Campaign.new(campaign_params)
-
+        @campaign.user_id = current_user.id
+        binding.pry
+        @campaign.save
+            redirect_to campaigns_path
+         #else
+        #    render :new
+        #end
     end
 
     def index
-        @campaigns = current_user.campaigns
+        @campaigns = Campaign.all
 
     end
 
@@ -26,7 +32,7 @@ class CampaignsController < ApplicationController
     private
 
     def campaign_params
-        params.require(:campaign).permit(:name, :schedule)
+        params.require(:campaign).permit(:name, :schedule, :description)
     end
 
 end
