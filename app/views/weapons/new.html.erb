@@ -1,0 +1,9 @@
+<h1>New Weapon</h1>
+
+<%= form_for @weapon do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :damage %>
+    <%= f.text_field :damage %>
+    <%= f.submit %>
+<% end %>
