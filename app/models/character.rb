@@ -17,4 +17,16 @@ class Character < ApplicationRecord
     #     race = Race.find_or_create_by(name: name)
     #     self.race = race
     # end
+
+    def category_attributes=(attributes)
+        if !attributes[:name].blank?
+            self.category = Category.find_or_create_by(attributes)
+        end
+    end
+
+    def race_attributes=(attributes)
+        if !attributes[:name].blank?
+            self.race = Race.find_or_create_by(attributes)
+        end
+    end
 end
