@@ -19,6 +19,21 @@ class CharactersController < ApplicationRecord
 
     end
 
+    def edit
+        @character = Character.find_by(id: params[:id])
+    end
+
+    def update
+        @character = Character.find_by(id: params[:id])
+        @character.update(character_params)
+
+        if @character.valid?
+            redirect_to character_path(@character)
+        else
+            render :edit
+        end
+    end
+
     private
 
     def character_params
