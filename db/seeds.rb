@@ -7,12 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# 10.times do 
-#     User.create({
-#         "email" => Faker::Internet.email,
-#         "password" => Faker::Internet.password
-#     })
-# end
+10.times do 
+    User.create({
+        "email" => Faker::Internet.email,
+        "password" => Faker::Internet.password,
+        "name" => Faker::Name.name,
+        "username" => Faker::Name.unique.name
+    })
+end
 
 10.times do
     Character.create({
@@ -24,22 +26,22 @@ end
 
 10.times do
     Category.create({
-        "name" => Faker::Games::DnD.klass
+        "name" => Faker::Games::DnD.klass,
         "trait" => Faker::Lorem.sentence(word_count: 3)
     })
 end
 
 10.times do
     Race.create({
-        "name" => Faker::Games::DnD.race
+        "name" => Faker::Games::DnD.race,
         "trait" => Faker::Lorem.sentence(word_count: 3)
     })
 end
 
 10.times do 
     Weapon.create({
-        "name" => Faker::Games::DnD.melee_weapon
-        "description" => Faker::Books::Lovecraft.words
+        "name" => Faker::Games::DnD.melee_weapon,
+        "description" => Faker::Books::Lovecraft.words,
         "damage" => Faker::Number.number(digits: 2)
     })
 end
