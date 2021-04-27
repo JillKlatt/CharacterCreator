@@ -5,26 +5,23 @@
 <%= @campaign.name%><br>
 <h3>This campaign takes place on <%= @campaign.schedule %> </h3><br>
 
-<h3>Select DM for this campaign:</h3>
+<h3>Select Dungeon Master for this campaign:</h3>
     <%= form_with model: @campaign do |f| %>
                 <% @campaign.adventures.each do |adventure| %>
                 <%= f.radio_button :adventure_admin, adventure.id, { checked: !!adventure.role } %><%= adventure.character.name%>  <br>
                     <% end %>
-                    <%= f.submit %>
+                    <%= f.submit "Change DM"%>
             <% end %>
             
+            <h3><%=@campaign.adventures.where(role: true).name %>
 
 
 
 
-        <h3>This campaign includes:</h3>
-        <%= form_with model: @campaign do |f| %>
-        <%= f.collection_check_boxes :character_ids, @characters, :id, :name %>
-
-        <%= f.submit %>
+<h3>This campaigaign includes:</h3>
+     <% @campaign.characters.each do |character| %>
+        <%= link_to character.name, character_path(character) %>
         <% end %>
-
-
 
 
  
