@@ -3,13 +3,10 @@
 <h2>One Specific Campaign:</h2>
 
 <%= @campaign.name%><br>
-<% @campaign.characters.each do |character| %>
-    <%= character.name %>
+<h3>This campaign takes place on <%= @campaign.schedule %> </h3><br>
+<h3>Characters</h3><br>
+<% @campaign.characters.each do |campaign| %>
+    <%= link to campaign.name, campaign_path(campaign) %>
 <% end %>
 
 
-<%= link_to 'Edit Character', edit_character_path(@character) %>
-<br>
-<%= link_to 'Delete Character', destroy_character_path(@character) %>
-<br>
-<%= link_to 'View All Characters', characters_path %>

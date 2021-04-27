@@ -7,4 +7,9 @@
      <%= @character.race.name %>
 
 </div>
+
+<%= link_to 'Edit Character', edit_character_path(@character) %>
+<br>
+<%= link_to 'Delete Character', character_path(@character), method: 'delete' %>
+<br>
 <%= link_to 'View All Characters', characters_path %>
