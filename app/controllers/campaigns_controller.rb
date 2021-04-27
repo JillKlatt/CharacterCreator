@@ -3,6 +3,7 @@ class CampaignsController < ApplicationController
     def show
         @campaign = Campaign.find_by(id: params[:id])
         @characters = current_user.characters
+        @character = @campaign.characters.build(user_id: current_user.id)
     end
 
     def new
@@ -13,11 +14,12 @@ class CampaignsController < ApplicationController
         @campaign = Campaign.new(campaign_params)
         @campaign.user_id = current_user.id
         binding.pry
-        @campaign.save
+        if @campaign.save
             redirect_to campaigns_path
-         #else
-        #    render :new
-        #end
+        else
+            flash[:message] = "#{@campaign.errors.full_messages.join(', ')}"
+            render :new
+        end
     end
 
     def index
@@ -36,13 +38,16 @@ class CampaignsController < ApplicationController
 
         if @campaign.valid?
                 redirect_to campaign_path(@campaign)
+        else
+            flash[:message] = "#{@campaign.errors.full_messages.join(', ')}"
+            render :edit
         end
     end
 
     private
 
     def campaign_params
-        params.require(:campaign).permit(:name, :schedule, :description)
+        params.require(:campaign).permit(:name, :schedule, :description, :user_id, :id)
     end
 
 end

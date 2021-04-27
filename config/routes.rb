@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :categories
   resources :races 
   resources :weapons
-  resources :campaigns
+  resources :campaigns do
+    resources :characters, only: [:index, :new, :create]
+  end
   
   
   get '/signup', to: 'users#new'

@@ -1,5 +1,9 @@
-<h1>All Your Characters:</h1>
-
+<!--REMOVE LOGIC-->
+<% if @campaign %>
+    <h1>The characters in this campaign</h1>
+<% else %>
+    <h1>All Your Characters:</h1>
+<% end %>
 
 <div>
     <ul> 
@@ -9,4 +13,7 @@
     </ul>
 </div>
 
+
+<!-- REMOVE LOGIC-->
+<!-- FROM CAMPAIGNS/ID/CHARACTERS PATH, DO NOT WANT:-->
 <%= link_to 'Create New Character', new_character_path %>

@@ -3,10 +3,14 @@ require 'pry'
 class CharactersController < ApplicationController
     before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update]
     #before_action :set_characters, only: [:index]
-    before_action :set_campaign, only: [:index, :new, :create]
+    before_action :set_campaign, only: [:index, :new, :create, :show]
 
     def index
-        @characters = current_user.characters
+       if @campaign
+            @characters = @campaign.characters
+       else
+            @characters = current_user.characters
+       end
     end
 
     def new
@@ -35,7 +39,7 @@ class CharactersController < ApplicationController
                 redirect_to character_path(@character)
             end
         else 
-            #Error
+            flash[:message] = "#{@character.errors.full_messages.join(', ')}"
             render :new
         end
 
@@ -55,6 +59,7 @@ class CharactersController < ApplicationController
         if @character.valid?
             redirect_to character_path(@character)
         else
+            flash[:message] = "#{@character.errors.full_messages.join(', ')}"
             render :edit
         end
     end
@@ -72,7 +77,8 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, category_attributes: [:name, :trait], race_attributes: [:name, :trait])
+        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id)
+        #category_attributes: [:name, :trait], race_attributes: [:name, :trait],
     end
 
     def set_characters
