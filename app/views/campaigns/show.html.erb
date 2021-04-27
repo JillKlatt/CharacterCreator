@@ -6,18 +6,22 @@
 <h3>This campaign takes place on <%= @campaign.schedule %> </h3><br>
 
 <!-- REMOVE LOGIC FROM VIEW -->
-<% if @campaign.characters.count > 0 %>
-    <h3>Characters:</h3><br>
-        <% @campaign.characters.each do |character| %>
-            <%= link to character.name, character_path(character) %>
-        <% end %>
-<% else %>
-    <h3>This campaign has no characters! (Somehow add them below!) List of your characters to add to this campaign:</h3>
+    <% if @campaign.characters.count > 0 %>
+        <h3>Characters:</h3><br>
+            <% @campaign.characters.each do |character| %>
+                <%= link_to character.name, character_path(character) %>
+            <% end %>
+    <% else %>
+        <h3>This campaign has no characters! (Somehow add them below!) List of your characters to add to this campaign:</h3>
         <%= form_with model: @adventure do |f| %>
-        <%= f.collection_check_boxes :character_id, @characters, :id, :name %><br>
-        <%= f.submit "Add Character to Campaign" %>
+            <% @characters.each do |character| %>
+                <%= f.radio_button :character_id, character.id%><%= character.name%> <br>
+                    <% end %>
+                <%= f.hidden_field :campaign_id, value: @campaign.id %>
+                <%= f.submit "Add Character to Campaign" %>
         <% end %>
-<% end %>
+    <% end %>
+
 
 
  

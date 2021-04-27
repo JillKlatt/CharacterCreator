@@ -8,10 +8,15 @@ class AdventuresController < ApplicationController
 
     def create
         @adventure = Adventure.new(adventure_params)
-        binding.pry
-        self.campaign_id = params[campaign_id]
-        self.character_id = params[character_id]
-        redirect_to campaigns_path
+        #byebug
+        #@adventure = Adventure.new(params)
+        @adventure.campaign_id = params[:adventure][:campaign_id]
+        @adventure.character_id = params[:adventure][:character_id]
+        
+        @adventure.save
+        #binding.pry
+        campaign = @adventure.campaign_id
+        redirect_to campaign_path(campaign)
     end
 
     private

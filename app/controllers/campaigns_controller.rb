@@ -4,6 +4,7 @@ class CampaignsController < ApplicationController
         @campaign = Campaign.find_by(id: params[:id])
         @characters = current_user.characters
         @character = @campaign.characters.build(user_id: current_user.id)
+        @adventure = @campaign.adventures.build(character_id: @character.id, campaign_id: @campaign.id)
     end
 
     def new
