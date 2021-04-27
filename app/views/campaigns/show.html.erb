@@ -13,7 +13,10 @@
         <% end %>
 <% else %>
     <h3>This campaign has no characters! (Somehow add them below!) List of your characters to add to this campaign:</h3>
- 
+        <%= form_with model: @adventure do |f| %>
+        <%= f.collection_check_boxes :character_id, @characters, :id, :name %><br>
+        <%= f.submit "Add Character to Campaign" %>
+        <% end %>
 <% end %>
 
 

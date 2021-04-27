@@ -2,8 +2,8 @@ class CampaignsController < ApplicationController
 
     def show
         @campaign = Campaign.find_by(id: params[:id])
-        # @characters = current_user.characters
-        # @character = @campaign.characters.build(user_id: current_user.id)
+        @characters = current_user.characters
+        @character = @campaign.characters.build(user_id: current_user.id)
     end
 
     def new
