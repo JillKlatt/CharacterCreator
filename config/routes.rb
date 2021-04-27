@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :campaigns do
     resources :characters, only: [:index, :new, :create]
   end
+  resources :adventures
   
   
   get '/signup', to: 'users#new'
