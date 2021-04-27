@@ -19,6 +19,10 @@ class AdventuresController < ApplicationController
         redirect_to campaign_path(campaign)
     end
 
+    def show
+        
+    end
+
     private
 
     def adventure_params
