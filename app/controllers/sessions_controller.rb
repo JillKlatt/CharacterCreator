@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     end
 
     def logout
-        session.delete
+        session.clear
         redirect_to login_path
     end
 
