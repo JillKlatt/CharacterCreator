@@ -4,4 +4,13 @@ class Campaign < ApplicationRecord
     #belongs_to :user, optional: true
 
     accepts_nested_attributes_for :characters
+
+    def adventure_admin=(adventure_id)
+        adventure = Adventure.find_by(id: adventure_id) 
+        self.adventures.update_all(role: false)
+        adventure.role = true
+        adventure.save
+    end
+
+
 end
