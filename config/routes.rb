@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :weapons
   resources :campaigns do
     resources :characters, only: [:index, :new, :create]
+    resource :adventures, only: [:create]
   end
   resources :adventures
+  resources :sessions, only: [:new, :create, :destroy]
   
   
   get '/signup', to: 'users#new'
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
-  delete '/logout', to: 'sessions#logout'
+  delete '/logout', to: "sessions#logout"
 
   root('static#home')
 end
