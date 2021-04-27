@@ -29,8 +29,8 @@ class CharactersController < ApplicationController
     def create
         @character = Character.new(character_params)
         #binding.pry
-        @character.category_id = params[:character][:category_id][1]
-        @character.race_id = params[:character][:race_id][1]
+        # @character.category_id = params[:character][:category_id]
+        # @character.race_id = params[:character][:race_id]
         @character.user_id = current_user.id
 
         if @character.save
