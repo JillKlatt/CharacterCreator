@@ -21,12 +21,22 @@ class CampaignsController < ApplicationController
     end
 
     def index
-        @campaigns = Campaign.all
+        @campaigns = current_user.campaigns
 
     end
 
     def edit
+        @campaign = Campaign.find_by(id: params[:id])
+        @characters = current_user.characters
+    end
 
+    def update
+        @campaign = Campaign.find_by(id: params[:id])
+        @campaign.update(campaign_params)
+
+        if @campaign.valid?
+                redirect_to campaign_path(@campaign)
+        end
     end
 
     private
