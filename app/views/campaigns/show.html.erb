@@ -7,19 +7,16 @@
 
 <!-- REMOVE LOGIC FROM VIEW -->
 <% if @campaign.characters.count > 0 %>
-<h3>Characters:</h3><br>
-    <% @campaign.characters.each do |character| %>
-        <%= link to character.name, character_path(character) %>
-    <% end %>
+    <h3>Characters:</h3><br>
+        <% @campaign.characters.each do |character| %>
+            <%= link to character.name, character_path(character) %>
+        <% end %>
+<% else %>
+    <h3>This campaign has no characters! (Somehow add them below!) List of your characters to add to this campaign:</h3>
+ 
 <% end %>
 
-<h4>Add Character to this Campaign:</h4>
-<%= form_with(model: [@campaign, @character]) do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.collection_check_boxes :id, @characters, :id, :name %><br>
-    <%= f.submit "Add Character" %>
-<% end %>
-<!-- Somehow need this above form to change Adventure (so that character_id and campaign_id )-->
+
  
 
 

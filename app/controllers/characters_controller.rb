@@ -7,6 +7,7 @@ class CharactersController < ApplicationController
 
     def index
        if @campaign
+        binding.pry
             @characters = @campaign.characters
        else
             @characters = current_user.characters

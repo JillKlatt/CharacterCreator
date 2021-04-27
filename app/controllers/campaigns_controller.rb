@@ -2,12 +2,16 @@ class CampaignsController < ApplicationController
 
     def show
         @campaign = Campaign.find_by(id: params[:id])
-        @characters = current_user.characters
-        @character = @campaign.characters.build(user_id: current_user.id)
+        # @characters = current_user.characters
+        # @character = @campaign.characters.build(user_id: current_user.id)
     end
 
     def new
         @campaign = Campaign.new
+        @characters = current_user.characters
+        @character = @campaign.characters.build(user_id: current_user.id)
+        @categories = Category.all
+        @races = Race.all
     end
 
     def create 
@@ -47,7 +51,7 @@ class CampaignsController < ApplicationController
     private
 
     def campaign_params
-        params.require(:campaign).permit(:name, :schedule, :description, :user_id, :id)
+        params.require(:campaign).permit(:name, :schedule, :description, :user_id, :id, character_attributes: [:name, :age, :race, :category, :description])
     end
 
 end

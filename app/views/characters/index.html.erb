@@ -1,8 +1,8 @@
 <!--REMOVE LOGIC-->
-<% if @campaign %>
-    <h1>The characters in this campaign</h1>
+<% if @campaign.present? %>
+    <h1>The characters in this campaign:</h1>
 <% else %>
-    <h1>All Your Characters:</h1>
+    <h1>All Your Characters: (No campaign specified)</h1>
 <% end %>
 
 <div>
