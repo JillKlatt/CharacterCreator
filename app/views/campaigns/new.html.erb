@@ -7,13 +7,6 @@
     <%= f.text_field :schedule %><br>
     <%= f.label :description %>
     <%= f.text_area :description %><br>
-        <%= f.fields_for :characters do |c| %>
-        <%= c.label :name %>
-        <%= c.text_field :name %><br>
-        <%= c.label :category, "Class:" %>
-        <%= c.collection_check_boxes :category_id, @categories, :id, :name %><br>
-        <%= c.label :race %>
-        <%= c.collection_check_boxes :race_id, @races, :id, :name %><br>
-        <% end %>
+
     <%= f.submit %>
 <% end %>
