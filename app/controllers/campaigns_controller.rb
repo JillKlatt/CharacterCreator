@@ -2,7 +2,7 @@ class CampaignsController < ApplicationController
 
     def show
         @campaign = Campaign.find_by(id: params[:id])
-
+        @characters = current_user.characters
     end
 
     def new

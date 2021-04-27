@@ -10,10 +10,15 @@ class CharactersController < ApplicationController
     end
 
     def new
-        
-        @character = Character.new
-        @races = Race.all
-        @categories = Category.all
+        if @campaign
+            @character = @campaign.characters.build
+            @races = Race.all
+            @categories = Category.all
+        else
+            @character = Character.new
+            @races = Race.all
+            @categories = Category.all
+        end
     end
 
     def create
@@ -24,9 +29,13 @@ class CharactersController < ApplicationController
         @character.user_id = current_user.id
 
         if @character.save
-
-               redirect_to character_path(@character)
+            if @campaign
+               redirect_to campaign_character_path(@character)
+            else
+                redirect_to character_path(@character)
+            end
         else 
+            #Error
             render :new
         end
 

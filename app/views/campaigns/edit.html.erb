@@ -11,3 +11,10 @@
 
     <%= f.submit %>
 <% end %>
+
+<h4>Add One of Your Characters to this Campaign? (Change this to single option) </h4>
+    <%= form_with model: @character do |f| %>
+        <%= f.label :character %>
+        <%= f.collection_check_boxes :character_id, @characters, :id, :name %><br>
+        <%= f.submit "Add Character" %>
+    <% end %>
