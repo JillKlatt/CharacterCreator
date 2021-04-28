@@ -6,10 +6,10 @@
 <h3>This campaign takes place on <%= @campaign.schedule %> </h3><br>
 
             
-<h3>The DM for this fine game is: <%=find_dm %> </h3>
+<h3>The DM for this fine game is: <%=@campaign.find_dm %> </h3>
 
 
-<h3>This campaigaign includes:</h3>
+<h3>This campaign includes:</h3>
      <% @campaign.characters.each do |character| %>
         <%= link_to character.name, character_path(character) %>
         <% end %>

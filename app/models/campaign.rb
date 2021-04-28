@@ -13,12 +13,14 @@ class Campaign < ApplicationRecord
     end
 
     def find_dm
+        #binding.pry
         self.adventures.each do |adventure|
             if adventure.role == true
-            @found_character = adventure.character_id
+            @found_character_id = adventure.character_id
             end
-        @dm = Character.find_by(id: @found_character)
         end
+        @dm = Character.find_by(id: @found_character_id)
+        @dm.name
     end
 
 end

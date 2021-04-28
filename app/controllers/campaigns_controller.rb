@@ -57,4 +57,5 @@ class CampaignsController < ApplicationController
         params.require(:campaign).permit(:name, :schedule, :description, :user_id, :id, :adventure_admin, character_ids: [], character_attributes: [:name, :age, :race, :category, :description])
     end
 
+    
 end
