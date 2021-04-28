@@ -5,4 +5,5 @@ class User < ApplicationRecord
     has_many :races, through: :characters
     has_many :adventures, through: :characters
     has_many :campaigns
+    has_many :weapons
 end
