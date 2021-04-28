@@ -19,10 +19,12 @@ class CharactersController < ApplicationController
             @character = @campaign.characters.build
             @races = Race.all
             @categories = Category.all
+            @weapons = current_user.weapons
         else
             @character = Character.new
             @races = Race.all
             @categories = Category.all
+            @weapons = current_user.weapons
         end
     end
 
@@ -78,7 +80,7 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id)
+        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id, weapon_ids: [])
         #category_attributes: [:name, :trait], race_attributes: [:name, :trait],
     end
 
