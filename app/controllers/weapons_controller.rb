@@ -1,7 +1,7 @@
 class WeaponsController < ApplicationController
     
     def index
-        @weapons = Weapon.all
+        @weapons = current_user.weapons
     end
 
     def show
