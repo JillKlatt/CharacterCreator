@@ -1,11 +1,17 @@
 
+
+
 <% if current_user.nil? %>
 
+<br>
+<%= button_to 'Login with Google', "/auth/google_oauth2", method: 'post' %>
+<br>
+<%= link_to 'Login with Character-Creator Account', login_path %>
 
-
-
+<% else %>
 <!--Maybe some sort of dropdown like, 'view your creations with characters, weapons, classes, and races?-->
-
+<h1>Your Dashboard <%= current_user.name %></h1>
+<br>
 <%= link_to 'View Your Characters', characters_path %>
 <br>
 <%= link_to 'View Your Weapons', weapons_path %>
@@ -14,11 +20,9 @@
 <br>
 <br>
 
-<br>
-<%= button_to 'Login with Google', "/auth/google_oauth2", method: 'post' %>
 
-<% else %>
-<h1>Your Dashboard <%= current_user.name %></h1>
+
 <%= button_to 'Logout', logout_path, method: "delete" %>
 
 <% end %>
+

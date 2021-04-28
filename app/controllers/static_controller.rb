@@ -1,6 +1,7 @@
 class StaticController < ApplicationController
 
-    # def home
-    # end
+    def home
+        redirect_if_not_logged_in
+    end
    
 end
