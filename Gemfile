@@ -56,9 +56,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# For seed data:
 gem "faker"
+# For Flash messages:
 gem "rack-flash3"
-gem 'dotenv-rails'
+# For our Google login option:
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+# Hides Client Info:
+gem 'dotenv-rails'
+# binding
 gem 'pry'
