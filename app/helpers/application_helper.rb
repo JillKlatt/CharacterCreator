@@ -15,11 +15,9 @@ module ApplicationHelper
     end
 
     def display_campaign_schedule
-        if current_user.campaigns.count >= 1
-            "You have the following games scheduled "
-            current_user.campaigns.each do |campaign|
-                "#{campaign.name} on #{campaign.schedule}."
-            end
+        current_user.campaigns.each do |campaign|
+            return campaign.name #campaign.schedule
+            binding.pry
         end
     end 
 end
