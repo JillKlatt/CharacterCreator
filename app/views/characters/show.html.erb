@@ -3,13 +3,21 @@
 <h2><%= @character.name %></h2>
 
 <div>
-     <%= @character.category.name %><%= @character.category.trait%><br>
-     <%= @character.race.name %>
+     <h4><%= @character.race.name %> <%= @character.category.name %> </h4>
+     <br>Race traits: <%= @character.category.trait%>
+     <br>Class traits: <%= @character.category.trait%><br>
 
 </div>
+<br>
 
-
-
+<h4><%=@character.description %></h4>
+<br>
+<h5>Currently in:</h5>
+<% @character.campaigns.each do |campaign|%>
+<%= link_to campaign.name, campaign_path(campaign)%>
+<% end %>
+<br>
+<br>
 <%= link_to 'Edit Character', edit_character_path(@character) %>
 <br>
 <%= link_to 'Delete Character', character_path(@character), method: 'delete' %>
