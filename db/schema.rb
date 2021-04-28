@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_27_214856) do
+ActiveRecord::Schema.define(version: 2021_04_28_225258) do
 
   create_table "adventures", force: :cascade do |t|
     t.string "name"
@@ -76,14 +76,15 @@ ActiveRecord::Schema.define(version: 2021_04_27_214856) do
     t.string "name"
     t.text "description"
     t.string "damage"
-    t.integer "character_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["character_id"], name: "index_weapons_on_character_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_weapons_on_user_id"
   end
 
   add_foreign_key "adventures", "campaigns"
   add_foreign_key "adventures", "characters"
   add_foreign_key "campaigns", "users"
   add_foreign_key "characters", "users"
+  add_foreign_key "weapons", "users"
 end
