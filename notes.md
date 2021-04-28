@@ -43,6 +43,14 @@ Confirm:
 
 TO DO 
 
+[ ] Create partials for new and edit (characters, then campaigns, change all to radio on character)
+[ ] Figure out how to create and add new races and classes (Should be similar to characters and campaigns! Maybe with default classes/races and then additional somehow?)
+
+
+
+
+
+
 [ ] Be able to share campaigns between users
 [ ] Add logic to determine if character is yours in Campaign view
 [ ] Dry it up

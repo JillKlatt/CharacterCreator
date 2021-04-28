@@ -20,8 +20,10 @@ class Campaign < ApplicationRecord
                 @found_character_id = adventure.character_id
                 end
             end
-            @dm = Character.find_by(id: @found_character_id)
-            "The DM for this fine game is: #{@dm.name}"
+            if !@dm.nil?
+             @dm = Character.find_by(id: @found_character_id)
+                "The DM for this fine game is: #{@dm.name}"
+            end
         end
     end
 

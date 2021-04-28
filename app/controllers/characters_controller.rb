@@ -55,7 +55,7 @@ class CharactersController < ApplicationController
     def update
         @character = Character.find_by(id: params[:id])
         @character.update(character_params)
-        binding.pry
+        #binding.pry
 
         if @character.valid?
             redirect_to character_path(@character)
