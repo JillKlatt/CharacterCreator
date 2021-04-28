@@ -1,9 +1,11 @@
 <h1>Welcome Back!</h1>
 
-<%= form_with(scope :user, url: login_path) do |f| %>
+<%= form_with(scope: :user, url: login_path) do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
     <%= f.label :password %>
     <%= f.password_field :password %>
     <%= f.submit "Let's Go!" %>
 <%end%>
+<br>
+<%= button_to 'Login with Google', "/auth/google_oauth2", method: 'post' %>
