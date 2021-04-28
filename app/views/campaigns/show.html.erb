@@ -6,14 +6,16 @@
 <h4><%= @campaign.description %></h4>
 
             
-<h3>The DM for this fine game is: <%=@campaign.find_dm %> </h3>
+<h3><%=@campaign.find_dm %> </h3>
 
 
+<% if @campaign.characters.count > 0 %>
 <h3>This campaign includes:</h3>
      <% @campaign.characters.each do |character| %>
         <%= link_to character.name, character_path(character) %>
         <% end %>
 <br>
+<% end %>
 <%= link_to 'Edit Campaign', edit_campaign_path(@campaign) %>
 
  

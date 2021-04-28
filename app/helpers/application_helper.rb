@@ -13,4 +13,13 @@ module ApplicationHelper
 
         date.strftime("%b %d, %Y")
     end
+
+    def display_campaign_schedule
+        if current_user.campaigns.count >= 1
+            "You have the following games scheduled "
+            current_user.campaigns.each do |campaign|
+                "#{campaign.name} on #{campaign.schedule}."
+            end
+        end
+    end 
 end

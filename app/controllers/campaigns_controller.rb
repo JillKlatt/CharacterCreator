@@ -19,7 +19,7 @@ class CampaignsController < ApplicationController
     def create 
         @campaign = Campaign.new(campaign_params)
         @campaign.user_id = current_user.id
-        binding.pry
+        #binding.pry
         if @campaign.save
             redirect_to campaigns_path
         else

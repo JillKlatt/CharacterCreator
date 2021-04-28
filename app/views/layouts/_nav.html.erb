@@ -42,6 +42,11 @@
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
+        <li>
+         </li>
+         <li>
+            <%= button_to 'Logout', logout_path, class: 'nav-link active', method: "delete" %>
+         </li>
          <% else %>
             <li>
                 <%= button_to 'Login', login_path, class: 'nav-link active' %>
