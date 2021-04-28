@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">DM NOTEBOOK</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,13 +15,28 @@
                   </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            View Your
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="/characters">Characters</a></li>
+            <li><a class="dropdown-item" href="/categories">Classes</a></li>
+            <li><a class="dropdown-item" href="/races">Races</a></li>
+            <li><a class="dropdown-item" href="/weapons">Weapons</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="campaigns">Campaigns</a></li>
+          </ul>
+        </li>
+            <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Create New
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/characters/new">Characters</a></li>
+            <li><a class="dropdown-item" href="/categories/new">Classes</a></li>
+            <li><a class="dropdown-item" href="/races/new">Races</a></li>
+            <li><a class="dropdown-item" href="/weapons/new">Weapons</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="campaigns/new">Campaigns</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -29,13 +44,13 @@
         </li>
          <% else %>
             <li>
-                <%= link_to 'LOGIN', login_path, class: 'nav-link active' %>
+                <%= button_to 'Login', login_path, class: 'nav-link active' %>
             </li>
             <li>
-                <%= link_to 'SIGNUP', signup_path, class: 'nav-link active' %>
+                <%= button_to 'Signup', signup_path, class: 'nav-link active' %>
             </li>
             <li>
-                <%= link_to 'LOGIN WITH GOOGLE', "/auth/google_oauth2", class: 'nav-link active', method: "post" %>
+                <%= button_to 'Login with Google', "/auth/google_oauth2", class: 'nav-link active', method: "post" %>
             </li>
         <% end %>
       </ul>
