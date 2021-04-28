@@ -1,5 +1,8 @@
 
-<h1>Your Dashboard <%= current_user.name %></h1>
+<% if current_user.nil? %>
+
+
+
 
 <!--Maybe some sort of dropdown like, 'view your creations with characters, weapons, classes, and races?-->
 
@@ -10,4 +13,12 @@
 <%= link_to 'View Your Campaigns', campaigns_path %>
 <br>
 <br>
-<%= link_to 'Logout', logout_path, method: "delete" %>
+
+<br>
+<%= button_to 'Login with Google', "/auth/google_oauth2", method: 'post' %>
+
+<% else %>
+<h1>Your Dashboard <%= current_user.name %></h1>
+<%= button_to 'Logout', logout_path, method: "delete" %>
+
+<% end %>
