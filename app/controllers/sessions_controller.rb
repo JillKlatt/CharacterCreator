@@ -35,9 +35,9 @@ class SessionsController < ApplicationController
         end
 
         if @user.valid?
-            flash[:message] = "Welcome '#{@user.name!}!'"
+            #flash[:message] = "Welcome '#{@user.name!}!'"
             session[:user_id] = @user.id
-            redirect_to characters_path
+            redirect_to '/'
         else
             flash[:message] = "Issue logging in, please try again"
             redirect_to login_path
