@@ -5,17 +5,8 @@
 <%= @campaign.name%><br>
 <h3>This campaign takes place on <%= @campaign.schedule %> </h3><br>
 
-<h3>Select Dungeon Master for this campaign:</h3>
-    <%= form_with model: @campaign do |f| %>
-                <% @campaign.adventures.each do |adventure| %>
-                <%= f.radio_button :adventure_admin, adventure.id, { checked: !!adventure.role } %><%= adventure.character.name%>  <br>
-                    <% end %>
-                    <%= f.submit "Change DM"%>
-            <% end %>
             
-            <h3><%=@campaign.adventures.where(role: true).name %>
-
-
+<h3>The DM for this fine game is: <%=find_dm %> </h3>
 
 
 <h3>This campaigaign includes:</h3>

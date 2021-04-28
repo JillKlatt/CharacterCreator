@@ -4,6 +4,7 @@ class CampaignsController < ApplicationController
         @campaign = Campaign.find_by(id: params[:id])
         # byebug
         @characters = current_user.characters
+        # byebug
         #@adventure = @campaign.adventures.build(campaign_id: @campaign.id)
     end
 
