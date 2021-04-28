@@ -15,9 +15,6 @@
 <%= render(partial: "layouts/nav", locals: { logo_name: "DM Notebook"}) %>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2">
-          <%= render partial: "layouts/sidebar" %>
-        </div>
         <div class="col-8">
           <%= flash[:message]%>
           <%= yield %>

@@ -8,11 +8,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Dashboard</a>
         </li>
+        <% if logged_in? %>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+                  </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -27,11 +27,24 @@
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
+         <% else %>
+            <li>
+                <%= link_to 'LOGIN', login_path, class: 'nav-link active' %>
+            </li>
+            <li>
+                <%= link_to 'SIGNUP', signup_path, class: 'nav-link active' %>
+            </li>
+            <li>
+                <%= link_to 'LOGIN WITH GOOGLE', "/auth/google_oauth2", class: 'nav-link active', method: "post" %>
+            </li>
+        <% end %>
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+
+
     </div>
   </div>
 </nav>
