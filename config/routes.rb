@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :characters
+  resources :characters do
+    resources :weapons, only: [:index, :new, :create]
+    resource :character_weapons, only: [:create]
+  end
   resources :categories
   resources :races 
   resources :weapons
