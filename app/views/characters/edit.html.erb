@@ -1,26 +1,13 @@
-<%= form_with model: @character do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-    <%= f.label :age %>
-    <%= f.text_field :age %><br>
-    <%= f.label :category, 'Class:'%>
-    <%= f.collection_check_boxes :category_id, @categories, :id, :name %><br>
-    <%= f.label :race %>
-    <%= f.collection_check_boxes :race_id, @races, :id, :name %><br>
-    <%= f.label :description%>
-    <%= f.text_area :description %><br>
-    <%= f.submit "Update Character" %>
-
-<% end %>
+<%= render partial: 'form', locals: {model: @character} %>
 
         <h3>Character Weapons:</h3>
-        <% if @weapons %>
-            <%= form_with model: @character do |f| %>
+        <% if @weapons.blank? %>
+        <h3>You don't have any weapons yet!  </h3><%= link_to 'Create one now?', new_character_weapon_path(@character) %>
+        <% else %>
+             <%= form_with model: @character do |f| %>
             <%= f.collection_check_boxes :weapon_ids, @weapons, :id, :name %><br>
             <%= f.submit "Update Weapons" %>
             <% end %>
-        <% else %>
-        <h3>You don't have any weapons yet!  </h3><%= link_to 'Create one now?', new_character_weapon_path(@character) %>
         <% end %>
 
 

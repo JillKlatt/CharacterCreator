@@ -54,7 +54,7 @@ class CharactersController < ApplicationController
         @character = Character.find_by(id: params[:id])
         @races = Race.all
         @categories = Category.all
-        binding.pry
+        #binding.pry
         @weapons = current_user.weapons
     end
 
@@ -76,7 +76,7 @@ class CharactersController < ApplicationController
         @character = Character.find_by(id: params[:id])
     end
 
-    def delete
+    def destroy
         @character = Character.find_by(id: params[:id])
         @character.destroy
         redirect_to characters_path

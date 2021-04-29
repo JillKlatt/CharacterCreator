@@ -1,24 +1,9 @@
 <br>
 <br>
+<%= render partial: 'form', locals: {model: @campaign} %>
 
-<%= form_for @campaign do |f|%>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-    <%= f.label :schedule %>
-    <%= f.text_field :schedule %><br>
-    <%= f.label :description %>
-    <%= f.text_area :description %><br>
 
-    <%= f.submit %>
-<% end %>
 
-<h3>Select Dungeon Master for this campaign:</h3>
-    <%= form_with model: @campaign do |f| %>
-                <% @campaign.adventures.each do |adventure| %>
-                <%= f.radio_button :adventure_admin, adventure.id, { checked: !!adventure.role } %><%= adventure.character.name%>  <br>
-                    <% end %>
-                    <%= f.submit "Change DM"%>
-            <% end %>
 
         <h3>This campaign includes:</h3>
         <% if current_user.characters.count > 0 %>
@@ -29,3 +14,11 @@
         <% else %>
         <h3>You don't have any characters yet!  </h3><%= link_to 'Create one now?', new_campaign_character_path(@campaign) %>
         <% end %>
+        
+        <h3>Select Dungeon Master for this campaign:</h3>
+    <%= form_with model: @campaign do |f| %>
+                <% @campaign.adventures.each do |adventure| %>
+                <%= f.radio_button :adventure_admin, adventure.id, { checked: !!adventure.role } %><%= adventure.character.name%>  <br>
+                    <% end %>
+                    <%= f.submit "Change DM"%>
+            <% end %>

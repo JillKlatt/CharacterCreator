@@ -1,12 +1,3 @@
 <br>
 <br>
-<%= form_for @campaign do |f|%>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-    <%= f.label :schedule %>
-    <%= f.text_field :schedule %><br>
-    <%= f.label :description %>
-    <%= f.text_area :description %><br>
-
-    <%= f.submit %>
-<% end %>
+<%= render partial: 'form', locals: {model: @campaign} %>

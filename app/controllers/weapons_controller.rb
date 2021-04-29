@@ -19,6 +19,12 @@ class WeaponsController < ApplicationController
         redirect_to weapons_path
     end
 
+    def destroy
+        @weapon = Weapon.find_by(id: params[:id])
+        @weapon.destroy
+        redirect_to weapons_path
+    end
+
     private
 
     def weapon_params

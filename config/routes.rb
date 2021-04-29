@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     resources :weapons, only: [:index, :new, :create]
     resource :character_weapons, only: [:create]
   end
-  resources :categories
-  resources :races 
+  # resources :categories
+  # resources :races 
   resources :weapons
   resources :campaigns do
     resources :characters, only: [:index, :new, :create]
@@ -28,5 +28,7 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
 
   root('static#home')
+
+  delete '/characters/:id', to: 'characters#destroy', as: 'destroy'
 
 end
