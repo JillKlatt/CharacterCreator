@@ -2,8 +2,9 @@ require 'pry'
 
 class CharactersController < ApplicationController
     before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update]
-    #before_action :set_characters, only: [:index]
+    before_action :set_characters, only: [:index]
     before_action :set_campaign, only: [:index, :new, :create, :show]
+    before_action :set_character, only: [:show, :destroy]
 
     def index
        if @campaign
@@ -77,8 +78,8 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-        @character = Character.find_by(id: params[:id])
         @character.destroy
+        flash[:message] = "Character Deleted"
         redirect_to characters_path
     end
 
@@ -90,12 +91,16 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id, weapon_ids: [])
+        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id, :character_weapon_notes, weapon_ids: [])
         #category_attributes: [:name, :trait], race_attributes: [:name, :trait],
     end
 
     def set_characters
         @characters = current_user.characters
+    end
+
+    def set_character
+        @character = Character.find_by(id: params[:id])
     end
 
     def set_campaign

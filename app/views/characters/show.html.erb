@@ -22,10 +22,12 @@
 <% @character.weapons.each do |weapon|%>
 <%= link_to weapon.name, character_weapons_path(weapon)%>
 <% end %>
+
+
 <br>
 <br>
 <%= link_to 'Edit Character', edit_character_path(@character) %>
 <br>
-<%= link_to 'Delete Character', character_path(@character), method: 'delete' %>
+<%= button_to 'Delete Character', character_path(@character), method: 'delete' %>
 <br>
 <%= link_to 'View All Characters', characters_path %>

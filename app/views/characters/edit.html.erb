@@ -9,7 +9,13 @@
             <%= f.submit "Update Weapons" %>
             <% end %>
         <% end %>
+            <%= form_with model: @character do |f| %>
+                <% @character.character_weapons.each do |character_weapon| %>
+                <%= f.text_field :character_weapon_notes, character_weapon.id %><%= character_weapon.weapon.name%>  <br>
+                    <% end %>
+                    <%= f.submit "Add Notes"%>
+            <% end %>
 
 
-
-<%= link_to 'Delete Character', characters_path(@character), method: "delete" %>
+<!--
+<%= link_to 'Delete Character', characters_path(@character), method: "delete" %> -->
