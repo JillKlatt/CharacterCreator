@@ -9,9 +9,9 @@ class Character < ApplicationRecord
     has_many :adventures
     has_many :campaigns, through: :adventures
 
-    validates :name, presence :true
-    validates :race, presence :true
-    validates :category, presence :true
+    validates :name, presence: true
+    validates :race, presence: true
+    validates :category, presence: true
 
     scope :search, -> (query) { self.where("name LIKE ?", "%#{query}") }
     
