@@ -1,7 +1,4 @@
-    <div>
-    <ul> 
-    <% @characters.each do |c| %>
-    <li><%= link_to c.name, character_path(c) %></li>
-    <% end %>
-    </ul>
-</div>
+
+
+    <li><%= link_to character.name, character_path(character) %></li>
+
