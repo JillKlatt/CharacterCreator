@@ -10,15 +10,15 @@
 
 <% else %>
 <!--Maybe some sort of dropdown like, 'view your creations with characters, weapons, classes, and races?-->
-<h1>Your Dashboard <%= current_user.name %></h1>
+<h1 style="color:white;"> Your Dashboard <%= current_user.name %></h1>
 <br>
 
 
     <% if current_user.campaigns.count >= 1 %>
-            <h3>You have the following games scheduled:</h3>
+            <h3 style="color:white;">You have the following games scheduled:</h3>
             <ul>
                     <% current_user.campaigns.each do |campaign| %>
-                        <li></li><%= link_to campaign.name, campaign_path(campaign) %> on <%= campaign.schedule %></li>
+                        <li class="link-info"><%= link_to campaign.name, campaign_path(campaign) %>  on <%= campaign.schedule %></li>
                     <% end %>
     <% end %>
 
