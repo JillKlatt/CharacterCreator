@@ -1,0 +1,9 @@
+<%= form_for @weapon do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :damage %>
+    <%= f.text_field :damage %><br>
+    <%= f.label "Description (optional)" %>
+    <%= f.text_area :description %>
+    <%= f.submit %>
+<% end %>
