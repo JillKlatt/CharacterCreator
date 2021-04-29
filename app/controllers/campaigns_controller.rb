@@ -5,7 +5,6 @@ class CampaignsController < ApplicationController
         # byebug
         @characters = current_user.characters
         # byebug
-        #@adventure = @campaign.adventures.build(campaign_id: @campaign.id)
     end
 
     def new

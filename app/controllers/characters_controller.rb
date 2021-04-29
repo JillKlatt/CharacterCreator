@@ -55,7 +55,7 @@ class CharactersController < ApplicationController
         @character = Character.find_by(id: params[:id])
         @races = Race.all
         @categories = Category.all
-        #binding.pry
+        binding.pry
         @weapons = current_user.weapons
     end
 
@@ -74,6 +74,8 @@ class CharactersController < ApplicationController
     end
 
     def show
+        byebug
+
         @character = Character.find_by(id: params[:id])
     end
 
@@ -85,13 +87,14 @@ class CharactersController < ApplicationController
 
     def search
         @characters = current_user.characters.search(params[:name])
+        binding.pry
         render :index
     end
 
     private
 
     def character_params
-        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id, :character_weapon_notes, weapon_ids: [])
+        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id, character_weapon_notes: [], weapon_ids: [])
         #category_attributes: [:name, :trait], race_attributes: [:name, :trait],
     end
 
