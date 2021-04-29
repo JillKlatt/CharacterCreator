@@ -3,7 +3,7 @@
 <h2><%= @campaign.name%></h2>
 <br>
 <h3>This campaign takes place on <%= @campaign.schedule %> </h3>
-<h4><%= @campaign.description %></h4>
+<h4>Campaign Description: </h4><%= @campaign.description %>
 
  
 
@@ -17,14 +17,15 @@
                 <%end%>
                     <%if !@found_character_id.nil?%>
                         <%@dm = Character.find_by(id: @found_character_id)%>
-                        <h3> The DM for this fine game is: <%=@dm.name%></h3>
                     <%end%>
             <%end%>
+
+        <h3> The DM for this fine game is: <%=@dm.name%></h3>
 
 
 <h3>This campaign includes:</h3>
      <% @campaign.characters.each do |character| %>
-        <%= link_to character.name, character_path(character) %>
+        <%= link_to character.name, character_path(character) %><br>
         <% end %>
 <br>
 <% end %>
