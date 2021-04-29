@@ -3,12 +3,15 @@ class Character < ApplicationRecord
     belongs_to :category
     belongs_to :race
 
+    has_many :character_weapons
+    has_many :weapons, through: :character_weapons
+    
     has_many :adventures
     has_many :campaigns, through: :adventures
 
-    validates :name, presence :true
-    validates :race, presence :true
-    validates :category, presence :true
+    # validates :name, presence :true
+    # validates :race, presence :true
+    # validates :category, presence :true
     
     
 
