@@ -43,6 +43,7 @@ Confirm:
 
 TO DO 
 
+[ ] FIX RACE AND CLASS TRAITS
 [ ] Replicate characters-weapons like campaigns-characters
 [ ] Create partials for new and edit (characters, then campaigns, change all to radio on character)
 [ ] Figure out how to create and add new races and classes (Should be similar to characters and campaigns! Maybe with default classes/races and then additional somehow?)

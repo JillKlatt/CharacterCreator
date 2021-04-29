@@ -14,7 +14,7 @@ class WeaponsController < ApplicationController
 
     def create
         @weapon = Weapon.new(weapon_params)
-        @weapon.user_id = current_user.id
+        current_user.weapons << @weapon
         @weapon.save
         redirect_to weapons_path
     end

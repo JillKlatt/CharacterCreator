@@ -15,7 +15,7 @@
 
         <h3>Character Weapons:</h3>
         <% if @weapons %>
-            <%= form_with model: @character_weapon do |f| %>
+            <%= form_with model: @character do |f| %>
             <%= f.collection_check_boxes :weapon_ids, @weapons, :id, :name %><br>
             <%= f.submit "Update Weapons" %>
             <% end %>

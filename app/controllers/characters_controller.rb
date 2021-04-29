@@ -24,7 +24,7 @@ class CharactersController < ApplicationController
             @character = Character.new
             @races = Race.all
             @categories = Category.all
-            binding.pry
+            #binding.pry
             @weapons = current_user.weapons
         end
     end
@@ -54,6 +54,7 @@ class CharactersController < ApplicationController
         @character = Character.find_by(id: params[:id])
         @races = Race.all
         @categories = Category.all
+        binding.pry
         @weapons = current_user.weapons
     end
 
