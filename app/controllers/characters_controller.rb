@@ -82,6 +82,11 @@ class CharactersController < ApplicationController
         redirect_to characters_path
     end
 
+    def search
+        @characters = current_user.characters.search(params[:name])
+        render :index
+    end
+
     private
 
     def character_params
