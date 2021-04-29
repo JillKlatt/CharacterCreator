@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   root('static#home')
 
+  get '/last_updated', to: 'characters#last_updated', as: 'last_updated'
+
   delete '/characters/:id', to: 'characters#destroy', as: 'destroy'
 
 end

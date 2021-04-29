@@ -14,6 +14,7 @@ class Character < ApplicationRecord
     validates :category, presence: true
 
     scope :search, -> (query) { self.where("name LIKE ?", "%#{query}") }
+    scope :last_updated, -> { order updated_at: :desc }
     
     
 

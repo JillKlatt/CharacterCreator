@@ -5,15 +5,13 @@
     <h1>All Your Characters: (No campaign specified)</h1>
 <% end %>
 
-<div>
-    <ul> 
-    <% @characters.each do |c| %>
-    <li><%= link_to c.name, character_path(c) %></li>
-    <% end %>
-    </ul>
-</div>
+
+
+<%= render @characters %>
 
 
 <!-- REMOVE LOGIC-->
 <!-- FROM CAMPAIGNS/ID/CHARACTERS PATH, DO NOT WANT:-->
 <%= link_to 'Create New Character', new_character_path %>
+
+<%= link_to "Sort By Last Updated", last_updated_path %>

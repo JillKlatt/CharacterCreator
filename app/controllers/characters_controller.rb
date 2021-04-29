@@ -74,9 +74,7 @@ class CharactersController < ApplicationController
     end
 
     def show
-        byebug
-
-        @character = Character.find_by(id: params[:id])
+        
     end
 
     def destroy
@@ -89,6 +87,10 @@ class CharactersController < ApplicationController
         @characters = current_user.characters.search(params[:name])
         binding.pry
         render :index
+    end
+
+    def last_updated
+        @characters = current_user.characters.last_updated
     end
 
     private
