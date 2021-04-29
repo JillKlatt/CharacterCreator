@@ -43,6 +43,9 @@ Confirm:
 
 TO DO 
 
+[ ] Add partials to new and edit for campaign
+[ ] Add partials to new and edit for character
+[ ] Add partials to new and edit for weaapon
 [ ] FIX RACE AND CLASS TRAITS
 [ ] Replicate characters-weapons like campaigns-characters
 [ ] Create partials for new and edit (characters, then campaigns, change all to radio on character)

@@ -49,10 +49,10 @@
          </li>
          <% else %>
             <li>
-                <%= button_to 'Login', login_path, class: 'nav-link active' %>
+                <%= button_to 'Login', login_path, class: 'nav-link active', method: 'get' %>
             </li>
             <li>
-                <%= button_to 'Signup', signup_path, class: 'nav-link active' %>
+                <%= button_to 'Signup', signup_path, class: 'nav-link active', method: 'get'  %>
             </li>
             <li>
                 <%= button_to 'Login with Google', "/auth/google_oauth2", class: 'nav-link active', method: "post" %>
