@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         @user = User.find_by_username(params[:user][:username])
 
         if @user && @user.authenticate([:user][:password])
-            flash[:message] = "Welcome '#{@user.name!}"
+            #flash[:message] = "Welcome '#{@user.name!}"
             session[:user_id] = @user.id
             redirect_to '/'
         else
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
     def logout
         session.clear
-        redirect_to login_path
+        redirect_to root_path
     end
 
     def omniauth
