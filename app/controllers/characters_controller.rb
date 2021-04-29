@@ -7,7 +7,7 @@ class CharactersController < ApplicationController
 
     def index
        if @campaign
-        binding.pry
+        #binding.pry
             @characters = @campaign.characters
        else
             @characters = current_user.characters
@@ -24,6 +24,7 @@ class CharactersController < ApplicationController
             @character = Character.new
             @races = Race.all
             @categories = Category.all
+            binding.pry
             @weapons = current_user.weapons
         end
     end
@@ -38,6 +39,7 @@ class CharactersController < ApplicationController
         if @character.save
             if @campaign
                redirect_to campaign_character_path(@character)
+
             else
                 redirect_to character_path(@character)
             end
@@ -48,15 +50,17 @@ class CharactersController < ApplicationController
 
     end
 
-    def edit
+    def edit                              
         @character = Character.find_by(id: params[:id])
         @races = Race.all
         @categories = Category.all
+        @weapons = current_user.weapons
     end
 
     def update
         @character = Character.find_by(id: params[:id])
         @character.update(character_params)
+  
         #binding.pry
 
         if @character.valid?

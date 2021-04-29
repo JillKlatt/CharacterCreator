@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_225258) do
+ActiveRecord::Schema.define(version: 2021_04_29_150823) do
 
   create_table "adventures", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2021_04_28_225258) do
     t.string "trait"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "character_weapons", force: :cascade do |t|
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "character_id"
+    t.integer "weapon_id"
+    t.index ["character_id"], name: "index_character_weapons_on_character_id"
+    t.index ["weapon_id"], name: "index_character_weapons_on_weapon_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -85,6 +95,8 @@ ActiveRecord::Schema.define(version: 2021_04_28_225258) do
   add_foreign_key "adventures", "campaigns"
   add_foreign_key "adventures", "characters"
   add_foreign_key "campaigns", "users"
+  add_foreign_key "character_weapons", "characters"
+  add_foreign_key "character_weapons", "weapons"
   add_foreign_key "characters", "users"
   add_foreign_key "weapons", "users"
 end
