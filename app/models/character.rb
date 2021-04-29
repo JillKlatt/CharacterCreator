@@ -6,6 +6,13 @@ class Character < ApplicationRecord
     has_many :adventures
     has_many :campaigns, through: :adventures
 
+    validates :name, presence :true
+    validates :race, presence :true
+    validates :category, presence :true
+    
+    
+
+
     # accepts_nested_attributes_for :race
     # accepts_nested_attributes_for :category
 

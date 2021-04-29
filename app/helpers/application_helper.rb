@@ -17,7 +17,6 @@ module ApplicationHelper
     def display_campaign_schedule
         current_user.campaigns.each do |campaign|
             return campaign.name #campaign.schedule
-            binding.pry
         end
     end 
 end

@@ -6,4 +6,6 @@ class User < ApplicationRecord
     has_many :adventures, through: :characters
     has_many :campaigns
     has_many :weapons
+    validates :email, uniqueness: true
+    validates :name, presence: true
 end
