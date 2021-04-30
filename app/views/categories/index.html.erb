@@ -1,0 +1,8 @@
+
+<h2>All Classes:</h2>
+<ul><% @categories.each do |category|%>
+ <li><%= link_to category.name, edit_category_path(category) %></li>
+ </ul>
+ <% end %>
+
+ <%= link_to "Create New Category", new_category_path %>
