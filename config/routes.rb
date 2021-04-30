@@ -4,8 +4,7 @@ Rails.application.routes.draw do
     resources :weapons, only: [:index, :new, :create]
     resource :character_weapons, only: [:create]
   end
-  # resources :categories
-  # resources :races 
+
   resources :weapons
   resources :campaigns do
     resources :characters, only: [:index, :new, :create]
@@ -14,9 +13,9 @@ Rails.application.routes.draw do
   resources :adventures
   resources :sessions, only: [:new, :create, :destroy]
 
+  # Categories and Races have all been made, no need to have the routes available to delete or edit them
   # resources :categories
-  # resources :races
-  
+  # resources :races 
   
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
