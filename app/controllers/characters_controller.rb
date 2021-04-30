@@ -4,11 +4,11 @@ class CharactersController < ApplicationController
     before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update]
     before_action :set_characters, only: [:index]
     before_action :set_campaign, only: [:index, :new, :create, :show]
-    before_action :set_character, only: [:show, :destroy]
+    before_action :set_character, only: [:edit, :update, :show, :destroy]
+    before_action :set_races_and_categories_and_weapons, only: [:new, :create, :edit, :update]
 
     def index
        if @campaign
-        #binding.pry
             @characters = @campaign.characters
        else
             @characters = current_user.characters
@@ -18,26 +18,20 @@ class CharactersController < ApplicationController
     def new
         if @campaign
             @character = @campaign.characters.build
-            @races = Race.all
-            @categories = Category.all
-            @weapons = current_user.weapons
         else
             @character = Character.new
-            @races = Race.all
-            @categories = Category.all
-            #binding.pry
-            @weapons = current_user.weapons
         end
     end
 
     def create
-        @races = Race.all
-        @categories = Category.all
+
         @character = Character.new(character_params)
         @character.user_id = current_user.id
 
         if @character.save
             if @campaign
+                byebug
+                @character.campaigns << @campaign
                redirect_to campaign_character_path(@character)
 
             else
@@ -50,28 +44,20 @@ class CharactersController < ApplicationController
     end
 
     def edit                              
-        @character = Character.find_by(id: params[:id])
-        @races = Race.all
-        @categories = Category.all
-        @weapons = current_user.weapons
     end
 
     def update
-        @character = Character.find_by(id: params[:id])
+
         @character.update(character_params)
-  
-        #binding.pry
 
         if @character.valid?
             redirect_to character_path(@character)
         else
-            #flash[:message] = "#{@character.errors.full_messages.join(', ')}"
             render :edit
         end
     end
 
     def show
-        
     end
 
     def destroy
@@ -108,5 +94,12 @@ class CharactersController < ApplicationController
     def set_campaign
         @campaign = Campaign.find_by(id: params[:id])
     end
+
+    def set_races_and_categories_and_weapons
+        @races = Race.all
+        @categories = Category.all
+        @weapons = current_user.weapons
+    end
+    
 
 end

@@ -3,9 +3,11 @@
 <h2><%= @campaign.name%></h2>
 <br>
 <h3>This campaign takes place on <%= @campaign.schedule %> </h3>
+<br>
 <h4>Campaign Description: </h4><%= @campaign.description %>
+<br>
 
- 
+ <br>
 
 
 
@@ -19,8 +21,9 @@
                         <%@dm = Character.find_by(id: @found_character_id)%>
                     <%end%>
             <%end%>
-
+        <% if @dm %>
         <h3> The DM for this fine game is: <%=@dm.name%></h3>
+        <% end %>
 
 
 <h3>This campaign includes:</h3>
