@@ -1,0 +1,9 @@
+<%= form_for @race do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :trait %>
+    <%= f.text_field :trait %><br>
+    <%= f.submit %>
+<% end %>
+
+<%= button_to 'Delete Race', race_path(@race), method: "delete" %>
