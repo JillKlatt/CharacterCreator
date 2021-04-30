@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
   resources :adventures
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :categories
+  resources :races
   
   
   get '/signup', to: 'users#new'

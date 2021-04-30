@@ -31,10 +31,9 @@ class CharactersController < ApplicationController
     end
 
     def create
+        @races = Race.all
+        @categories = Category.all
         @character = Character.new(character_params)
-        #binding.pry
-        # @character.category_id = params[:character][:category_id]
-        # @character.race_id = params[:character][:race_id]
         @character.user_id = current_user.id
 
         if @character.save
@@ -45,7 +44,6 @@ class CharactersController < ApplicationController
                 redirect_to character_path(@character)
             end
         else 
-            flash[:message] = "#{@character.errors.full_messages.join(', ')}"
             render :new
         end
 
@@ -55,7 +53,6 @@ class CharactersController < ApplicationController
         @character = Character.find_by(id: params[:id])
         @races = Race.all
         @categories = Category.all
-        binding.pry
         @weapons = current_user.weapons
     end
 
@@ -68,7 +65,7 @@ class CharactersController < ApplicationController
         if @character.valid?
             redirect_to character_path(@character)
         else
-            flash[:message] = "#{@character.errors.full_messages.join(', ')}"
+            #flash[:message] = "#{@character.errors.full_messages.join(', ')}"
             render :edit
         end
     end

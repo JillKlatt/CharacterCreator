@@ -2,6 +2,7 @@
 <br>
 <br>
 <h1>Let's Create a New Character!</h1>
+<%= render partial: 'errors/errors', locals: {model: @character} %>
 
 <%= render partial: 'form', locals: {model: @character} %>
 

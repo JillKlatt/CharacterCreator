@@ -1,4 +1,6 @@
 <h1>All Available Races:</h1>
 <% @races.each do |r| %>
-<%= r.name %>
+<%= link_to r.name, race_path(r) %>
 <% end %>
+
+ <%= link_to "Create New Race", new_race_path %>
