@@ -51,6 +51,6 @@ class RacesController < ApplicationController
     private
 
     def race_params
-        params.require(:race).permit(:name, :trait)
+        params.require(:race).permit(:name, :trait, :jills_opinion)
     end
 end

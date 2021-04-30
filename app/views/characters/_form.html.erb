@@ -10,10 +10,12 @@
      <% @races.each do |race| %>
                 <%= f.radio_button :race_id, race.id%><data-toggle="tooltip" data-placement="top" title="<%=race.jills_opinion%>"> <%=race.name%> <br>
                     <% end %>
+                    <br>
     <%= f.label :category, "Class:" %><br>
      <% @categories.each do |category| %>
                 <%= f.radio_button :category_id, category.id%><data-toggle="tooltip" data-placement="top" title="<%=category.jills_opinion%>"> <%=category.name%> <br>
                     <% end %>
+                    <br>
     <%= f.submit %>
 
     <% end %>
