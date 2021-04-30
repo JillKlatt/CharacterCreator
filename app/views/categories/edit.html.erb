@@ -1,0 +1,9 @@
+<%= form_for @category do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :trait %>
+    <%= f.text_field :trait %><br>
+    <%= f.submit %>
+<% end %>
+
+<%= button_to 'Delete Category', category_path(@category), method: "delete" %>
