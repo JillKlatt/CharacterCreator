@@ -8,14 +8,12 @@
 
     <%= f.label :race, "Race:" %><br>
      <% @races.each do |race| %>
-                <%= f.radio_button :race_id, race.id%><%= race.name%> <br>
+                <%= f.radio_button :race_id, race.id%><data-toggle="tooltip" data-placement="top" title="<%=race.jills_opinion%>"> <%=race.name%> <br>
                     <% end %>
     <%= f.label :category, "Class:" %><br>
      <% @categories.each do |category| %>
-               
-                <%= f.radio_button :category_id, category.id%><data-toggle="tooltip" data-placement="top" title="<%=category.trait%>"> <%=category.name%> <br>
+                <%= f.radio_button :category_id, category.id%><data-toggle="tooltip" data-placement="top" title="<%=category.jills_opinion%>"> <%=category.name%> <br>
                     <% end %>
-
     <%= f.submit %>
 
     <% end %>
