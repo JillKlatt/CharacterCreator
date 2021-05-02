@@ -8,6 +8,7 @@ class CharactersController < ApplicationController
     before_action :set_races_and_categories_and_weapons, only: [:new, :create, :edit, :update]
 
     def index
+        #byebug
        if @campaign
             @characters = @campaign.characters
        else
@@ -26,11 +27,13 @@ class CharactersController < ApplicationController
     def create
 
         @character = Character.new(character_params)
-        @character.user_id = current_user.id
+       # @character.user_id = current_user.id
 
         if @character.save
+            @campaign = Campaign.find_by(id: params[:campaign])
+            byebug
             if @campaign
-                byebug
+               #byebug
                 @character.campaigns << @campaign
                redirect_to campaign_character_path(@character)
 
@@ -79,7 +82,7 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id, character_weapon_notes: [], weapon_ids: [])
+        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id, :campaign_id, character_weapon_notes: [], weapon_ids: [])
         #category_attributes: [:name, :trait], race_attributes: [:name, :trait],
     end
 
@@ -92,7 +95,7 @@ class CharactersController < ApplicationController
     end
 
     def set_campaign
-        @campaign = Campaign.find_by(id: params[:id])
+        @campaign = Campaign.find_by(id: params[:campaign_id])
     end
 
     def set_races_and_categories_and_weapons
