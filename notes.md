@@ -37,8 +37,8 @@ Specs:
 Confirm:
 
  [ ] The application is pretty DRY
- [ ] Limited logic in controllers
- [ ] Views use helper methods if appropriate
+ [X] Limited logic in controllers
+ [X] Views use helper methods if appropriate
  [X] Views use partials if appropriate
 
 TO DO 
@@ -46,10 +46,16 @@ TO DO
 [X] Add partials to new and edit for campaign
 [X] Add partials to new and edit for character
 [X] Add partials to new and edit for weaapon
-[ ] FIX RACE AND CLASS TRAITS
+[X] FIX RACE AND CLASS TRAITS
 [X] Replicate characters-weapons like campaigns-characters
 [X] Create partials for new and edit (characters, then campaigns, change all to radio on character)
-[ ] Figure out how to create and add new races and classes (Should be similar to characters and campaigns! Maybe with default classes/races and then additional somehow?)
+[ ] README
+[ ] Add toggle campaign option like weapon option on character show
+[ ] Change character index to nicer looking button things
+
+
+
+
 
 
 
@@ -57,7 +63,7 @@ TO DO
 
 
 [ ] Be able to share campaigns between users
-[ ] Add logic to determine if character is yours in Campaign view
+[X] Add logic to determine if character is yours in Campaign view
 [ ] Dry it up
 
         <%= f.fields_for :characters do |c| %>

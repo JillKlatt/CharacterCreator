@@ -16,15 +16,13 @@
 
         <%@campaign.adventures.each do |adventure|%>
             <%if adventure.role == true%>
-            <%@found_character_id = adventure.character_id%>
-                #byebug
-            <%end%>
+                <%@found_character_id = adventure.character_id%>
+                <%end%>
+            <% end %>
                <% if !@found_character_id.nil?%>
                     <%@dm = Character.find_by(id: @found_character_id)%>
-                    <%="The DM for this fine game is: #{@dm.name}"%>
+                    <h3><%="The DM for this fine game is: #{@dm.name}"%></h3>
                <% end %>
-           <% end %>
-
 <br>
 <% if @campaign.characters.count > 0 %>
 <h3>This campaign includes:</h3>
