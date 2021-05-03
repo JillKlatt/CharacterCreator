@@ -23,6 +23,10 @@ class AdventuresController < ApplicationController
         
     end
 
+    def destroy
+
+    end
+
     private
 
     def adventure_params

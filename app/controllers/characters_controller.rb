@@ -3,7 +3,7 @@ require 'pry'
 class CharactersController < ApplicationController
     before_action :redirect_if_not_logged_in
     before_action :set_characters, only: [:index]
-    before_action :set_campaign, only: [:index, :new, :create, :show]
+    before_action :set_campaign, only: [:index, :new, :create, :show, :destroy]
     before_action :set_character, only: [:edit, :update, :show, :destroy]
     before_action :set_races_and_categories_and_weapons, only: [:new, :create, :edit, :update]
 
@@ -66,9 +66,11 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-        @character.destroy
-        flash[:message] = "Character Deleted"
-        redirect_to characters_path
+            @character.adventures.clear
+            @character.destroy
+            flash[:message] = "Character Deleted"
+            redirect_to characters_path
+
     end
 
     def search
