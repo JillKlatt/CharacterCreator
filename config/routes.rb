@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   resources :weapons
   resources :campaigns do
-    resources :characters, only: [:index, :new, :create]
-    resource :adventures, only: [:create]
+    resources :characters
+    resource :adventures
   end
   resources :adventures
   resources :sessions, only: [:new, :create, :destroy]

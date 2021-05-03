@@ -68,3 +68,8 @@ TO DO
         <%= c.label :race %>
         <%= c.collection_check_boxes :race_id, @races, :id, :name %><br>
         <% end %>
+
+
+        5/2
+
+            <%= f.hidden_field :campaign_id, value: @campaign.id%>

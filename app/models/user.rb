@@ -8,4 +8,7 @@ class User < ApplicationRecord
     has_many :weapons
     validates :email, uniqueness: true
     validates :name, presence: true
+    # validates :password, length: {minimum: 2}
+    # validates :password, confirmation: { case_sensitive_true }
+
 end

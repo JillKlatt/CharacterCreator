@@ -25,26 +25,28 @@ class CharactersController < ApplicationController
     end
 
     def create
+        if @campaign
 
-        @character = Character.new(character_params)
-       # @character.user_id = current_user.id
-
-        if @character.save
-            @campaign = Campaign.find_by(id: params[:campaign])
-            byebug
-            if @campaign
-               #byebug
-                @character.campaigns << @campaign
-               redirect_to campaign_character_path(@character)
-
-            else
-                redirect_to character_path(@character)
+            @character = @campaign.characters.build(character_params)
+            @campaign.characters << @character
+            if @character.save
+                #byebug
+                redirect_to campaign_path(@campaign)
+            else 
+                render :new
             end
+  
         else 
-            render :new
+            @character = Character.new(character_params)
+            if @character.save
+                redirect_to character_path(@character)
+            else 
+                render :new
+            end
         end
-
     end
+
+
 
     def edit                              
     end

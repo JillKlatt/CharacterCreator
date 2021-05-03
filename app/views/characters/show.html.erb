@@ -25,7 +25,8 @@
 
 <h5>Current Weapons:</h5>
 <% @character.character_weapons.each do |character_weapon|%>
-<%= link_to character_weapon.weapon.name, character_weapons_path(character_weapon) %><%= character_weapon.notes%>
+<%= link_to character_weapon.weapon.name, character_weapons_path(character_weapon)%> <%=character_weapon.notes%>
+
 <% end %>
 
 
