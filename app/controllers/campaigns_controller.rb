@@ -1,4 +1,5 @@
 class CampaignsController < ApplicationController
+    before_action :redirect_if_not_logged_in
 
     def show
         @campaign = Campaign.find_by(id: params[:id])

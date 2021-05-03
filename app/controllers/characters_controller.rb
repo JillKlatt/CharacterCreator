@@ -1,7 +1,7 @@
 require 'pry'
 
 class CharactersController < ApplicationController
-    before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update]
+    before_action :redirect_if_not_logged_in
     before_action :set_characters, only: [:index]
     before_action :set_campaign, only: [:index, :new, :create, :show]
     before_action :set_character, only: [:edit, :update, :show, :destroy]

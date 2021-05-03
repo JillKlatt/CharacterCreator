@@ -1,4 +1,5 @@
 class WeaponsController < ApplicationController
+    before_action :redirect_if_not_logged_in
     
     def index
         @weapons = current_user.weapons
