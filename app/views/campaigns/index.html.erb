@@ -1,12 +1,18 @@
 
 <br>
 <br>
-<h1>All Your Campaigns:</h1>
+<% if @campaigns.count > 0 %>
 
-<div>
-<ul>
-<%@campaigns.each do |campaign| %>
-<li><%= link_to campaign.name, campaign_path(campaign)%></li>
+    <h1>All Your Campaigns:</h1>
+
+        <div>
+        <ul>
+        <%@campaigns.each do |campaign| %>
+        <li><%= link_to campaign.name, campaign_path(campaign)%></li>
+        <% end %>
+        </ul>
+        </div>
+<% else %>
+    <h1>You don't have any campaigns yet!</h1>
+    <%= link_to 'Create One Now?', new_campaign_path %>
 <% end %>
-</ul>
-</div>

@@ -14,7 +14,7 @@
             <%= form_with model: @character do |f| %>
                 <% @character.character_weapons.each do |character_weapon| %>
                 <h5><%= character_weapon.weapon.name%></h5>
-                <%= f.label :character_weapon, "Weapon notes for this character" %>
+                <%= f.label :character_weapon_notes, "Weapon notes for this character" %>
                 <%= f.text_field :character_weapon_notes%>  <br>
                     <% end %>
                     <%= f.submit "Add Notes"%>
