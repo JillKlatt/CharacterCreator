@@ -6,6 +6,7 @@ class CharactersController < ApplicationController
     before_action :set_campaign, only: [:index, :new, :create, :show, :destroy]
     before_action :set_character, only: [:edit, :update, :show, :destroy]
     before_action :set_races_and_categories_and_weapons, only: [:new, :create, :edit, :update]
+    before_action :destroy_adventures, only: [:destroy]
 
     def index
         #byebug
@@ -66,11 +67,13 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-            @character.adventures.clear
-            @character.destroy
+        @character.destroy
+            if @character.destroy
             flash[:message] = "Character Deleted"
             redirect_to characters_path
-
+            else
+                flash[:message] = @character.errors.full_messages.join(" ")
+            end
     end
 
     def search
@@ -106,6 +109,12 @@ class CharactersController < ApplicationController
         @races = Race.all
         @categories = Category.all
         @weapons = current_user.weapons
+    end
+
+    def destroy_adventures
+        @character.adventures.each do |adventure|
+            adventure.destroy
+        end
     end
     
 
