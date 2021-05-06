@@ -29,11 +29,12 @@
   }
 
    a:link, a:visited {
-    color: rgb(156, 133, 133);
+    color: rgb(59, 44, 73);
     padding: 10px 20px;
     text-align: center; 
     text-decoration: none;
     display: inline-block;
+    font-size: 20px;
     }
     
     a:hover, a:active {

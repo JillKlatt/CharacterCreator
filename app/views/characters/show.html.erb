@@ -56,10 +56,13 @@
 
 <br>
 <br>
-
-    <%= link_to 'Edit Character', edit_character_path(@character) %>
-
-<div class="btn btn-outline-danger">
+<div class="container">
+  <div class="row align-items-start">
+      <div class="col">
+  <!--  <%= link_to 'Edit Character', edit_character_path(@character) %>-->
+    <%= button_to 'Edit Campaign', edit_character_path(@character), method: 'get' %>
+    </div>
+     <div class="col">
     <%= button_to 'Delete Character', character_path(@character), method: 'delete' %>
 </div>
 <br>
