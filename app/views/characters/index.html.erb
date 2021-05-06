@@ -1,21 +1,21 @@
 <!--REMOVE LOGIC-->
-<% if @campaign.present? %>
-    <h1>The characters in this campaign:</h1>
-    <%= link_to 'Create New Character In This Campaign', new_campaign_character_path %>
-<% else %>
-    <h1>All Your Characters: (No campaign specified)</h1>
-    <%= link_to 'Create New Character', new_character_path %>
+<% if @characters.count > 0 %>
+    <% if @campaign.present? %>
+        <h1>The characters in this campaign:</h1>
+        <%= link_to 'Create New Character In This Campaign', new_campaign_character_path %>
+    <% else %>
+
+            <h1>All Your Characters: (No campaign specified)</h1>
+    <div>
+        <ul>
+    <%= render @characters %>
+        </ul>
+    </div>
+    <%= link_to "Sort By Last Updated", last_updated_path %>
+    <% end %>
+<% else%>
+    <h1> You Don't Have Any Characters Yet!</h1>
+    <%= link_to 'Create One Now?', new_character_path %>
 <% end %>
 
 
-   <div>
-    <ul>
-<%= render @characters %>
-    </ul>
-</div>
-
-<!-- REMOVE LOGIC-->
-<!-- FROM CAMPAIGNS/ID/CHARACTERS PATH, DO NOT WANT:-->
-
-
-<%= link_to "Sort By Last Updated", last_updated_path %>

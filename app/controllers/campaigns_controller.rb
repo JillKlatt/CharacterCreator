@@ -56,7 +56,7 @@ class CampaignsController < ApplicationController
     def destroy
         @campaign.destroy
             if @campaign.destroy
-                flash[:message] = "Campaigns Deleted"
+                flash[:message] = "Campaign Deleted"
                 redirect_to campaigns_path
             else
                 flash[:message] = @campaign.errors.full_messages.join(" ")
