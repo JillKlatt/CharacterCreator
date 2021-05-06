@@ -1,6 +1,6 @@
 
 
-<h1><%= @character.name %></h1>
+<h1 class=h1-header-text><%= @character.name %></h1>
 
 
 
@@ -56,9 +56,14 @@
 
 <br>
 <br>
-<%= link_to 'Edit Character', edit_character_path(@character) %>
+
+    <%= link_to 'Edit Character', edit_character_path(@character) %>
+
+<div class="btn btn-outline-danger">
+    <%= button_to 'Delete Character', character_path(@character), method: 'delete' %>
+</div>
 <br>
-<%= button_to 'Delete Character', character_path(@character), method: 'delete' %>
 <br>
-<%= link_to 'View All Characters', characters_path %>
+
+    <%= link_to 'View All Characters', characters_path %>
 

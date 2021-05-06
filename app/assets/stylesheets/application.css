@@ -29,7 +29,7 @@
   }
 
    a:link, a:visited {
-    color: rgb(39, 34, 34);
+    color: rgb(156, 133, 133);
     padding: 10px 20px;
     text-align: center; 
     text-decoration: none;
@@ -49,5 +49,14 @@
     }
 
     body {
-      background: rgb(235, 167, 167);
+      background: rgb(245, 213, 213);
     }
+
+    .my-awesome-class textarea {
+      color: rgb(42, 133, 133);
+   }
+
+
+   .h-header-text {
+    color: rgb(60, 101, 128);
+   }
