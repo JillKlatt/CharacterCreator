@@ -11,9 +11,9 @@
 
 
 
-
+<!--
 <h3><% find_dm %></h3>
-<!-- This one works in the browser
+-->
         <%@campaign.adventures.each do |adventure|%>
             <%if adventure.role == true%>
                 <%@found_character_id = adventure.character_id%>
@@ -22,7 +22,7 @@
                <% if !@found_character_id.nil?%>
                     <%@dm = Character.find_by(id: @found_character_id)%>
                     <h3><%="The DM for this fine game is: #{@dm.name}"%></h3>
-               <% end %> -->
+               <% end %> 
 <br>
 <% if @campaign.characters.count > 0 %>
 
@@ -39,7 +39,9 @@
     </div>
     </div>
 <% end %>
-<%= link_to 'Edit Campaign', edit_campaign_path(@campaign) %>
+<%= button_to 'Edit Campaign', edit_campaign_path(@campaign), method: 'get' %>
+<br>
+<%= button_to 'Delete Campaign', campaign_path(@campaign), method: 'delete' %>
 
  
 
