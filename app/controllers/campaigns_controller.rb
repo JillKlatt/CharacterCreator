@@ -2,18 +2,13 @@ class CampaignsController < ApplicationController
     before_action :redirect_if_not_logged_in
     before_action :set_campaign, only: [:show, :edit, :update, :destroy]
     before_action :destroy_adventures, only: [:destroy]
-    before_action :set_characters, only: [:new, :create, :edit, :update]
+    before_action :set_characters, only: [:new, :create, :edit, :update, :show]
 
     def show
-        @campaign = Campaign.find_by(id: params[:id])
-        # byebug
-        @characters = current_user.characters
-        # byebug
     end
 
     def new
         @campaign = Campaign.new
-        @characters = current_user.characters
         @character = @campaign.characters.build(user_id: current_user.id)
         @categories = Category.all
         @races = Race.all
@@ -22,7 +17,7 @@ class CampaignsController < ApplicationController
     def create 
         @campaign = Campaign.new(campaign_params)
         @campaign.user_id = current_user.id
-        #binding.pry
+        # @character = Character.new(campaign_params[:character_attributes])
         if @campaign.save
             redirect_to campaigns_path
         else
@@ -37,12 +32,10 @@ class CampaignsController < ApplicationController
     end
 
     def edit
-        @campaign = Campaign.find_by(id: params[:id])
         @characters = current_user.characters
     end
 
     def update
-        @campaign = Campaign.find_by(id: params[:id])
         @campaign.update(campaign_params)
 
         if @campaign.valid?
