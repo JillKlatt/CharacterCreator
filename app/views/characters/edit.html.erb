@@ -19,6 +19,13 @@
                     <% end %>
                     <%= f.submit "Add Notes"%>
             <% end %>
+    <% if @campaigns.count > 0%>
+            <%= form_with model: @character do |f| %>
+            <%= f.collection_check_boxes :campaign_ids, @campaigns, :id, :name %><br>
+            <%= f.submit "Update Campaigns" %>
+            <% end %>
+    <% end %>
+
 
 
 <!--

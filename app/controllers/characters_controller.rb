@@ -6,6 +6,7 @@ class CharactersController < ApplicationController
     before_action :set_campaign, only: [:index, :new, :create, :show, :destroy]
     before_action :set_character, only: [:edit, :update, :show, :destroy]
     before_action :set_races_and_categories_and_weapons, only: [:new, :create, :edit, :update]
+    before_action :set_campaigns, only: [:new, :create, :edit, :update]
     before_action :destroy_adventures, only: [:destroy]
 
     def index
@@ -115,6 +116,10 @@ class CharactersController < ApplicationController
         @character.adventures.each do |adventure|
             adventure.destroy
         end
+    end
+
+    def set_campaigns
+        @campaigns = current_user.campaigns
     end
     
 

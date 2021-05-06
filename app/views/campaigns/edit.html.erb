@@ -23,4 +23,18 @@
                     <%= f.submit "Change DM"%>
             <% end %>
 
+<br>
+
+
+
 <h5><%= link_to "Create New Character for this Campaign", new_campaign_character_path(@campaign)%></h5>
+<p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="/campaigns/:campaign_id/characters/new" aria-expanded="false" aria-controls="collapseExample">
+    Current Characters
+  </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+  </div>
+</div>

@@ -25,11 +25,19 @@
                <% end %> -->
 <br>
 <% if @campaign.characters.count > 0 %>
-<h3>This campaign includes:</h3>
-     <% @campaign.characters.each do |character| %>
-        <%= link_to character.name, character_path(character) %><br>
-        <% end %>
-<br>
+
+    <p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Current Characters
+    </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+            <% @campaign.characters.each do |character| %>
+            <%= link_to character.name, character_path(character) %><br>
+            <% end %>
+    </div>
+    </div>
 <% end %>
 <%= link_to 'Edit Campaign', edit_campaign_path(@campaign) %>
 
