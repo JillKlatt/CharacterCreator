@@ -90,7 +90,7 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id, :campaign_id, character_weapon_notes: [], weapon_ids: [])
+        params.require(:character).permit(:name, :age, :description, :category_id, :race_id, :user_id, :id, :campaign_id, campaign_ids: [], character_weapon_notes: [], weapon_ids: [])
         #category_attributes: [:name, :trait], race_attributes: [:name, :trait],
     end
 

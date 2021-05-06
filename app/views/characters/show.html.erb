@@ -14,24 +14,43 @@
 
 <h4><%=@character.description %></h4>
 <br>
-<h5>Current Campaigns:</h5>
-<% @character.campaigns.each do |campaign|%>
-<%= link_to campaign.name, campaign_path(campaign)%>
+
+<!-- DISPLAY CURRENT CAMPAIGNS IN TOGGLE -->
+<% if @character.campaigns.count > 0 %>
+
+    <p>
+        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Current Campaigns
+    </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+            <% @character.campaigns.each do |campaign| %>
+            <%= link_to campaign.name, campaign_path(campaign) %><br>
+            <% end %>
+    </div>
+    </div>
 <% end %>
-<br>
-<!--
-<h5>Current weapons:</h5>
-<% @character.weapons.each do |weapon|%>
-<%= link_to weapon.name, character_weapons_path(weapon)%>
-<% end %> -->
+<!-- END CAMPAIGN TOGGLE-->
 
+<!-- DISPLAY CURRENT WEAPONS IN TOGGLE -->
+<% if @character.weapons.count > 0 %>
 
-<h5>Current Weapons:</h5>
-<% @character.weapons.each do |weapon|%>
-<%= link_to weapon.name, weapon_path(weapon)%> 
-
-
+    <p>
+        <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Current Weapons
+    </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+            <% @character.weapons.each do |weapon| %>
+            <%= link_to weapon.name, weapon_path(weapon) %><br>
+            <% end %>
+    </div>
+    </div>
 <% end %>
+
+<!--END WEAPON TOGGLE-->
 
 
 
