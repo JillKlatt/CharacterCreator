@@ -7,8 +7,7 @@ class CharactersController < ApplicationController
     before_action :set_character, only: [:edit, :update, :show, :destroy]
     before_action :set_races_and_categories_and_weapons, only: [:new, :create, :edit, :update]
     before_action :set_campaigns, only: [:new, :create, :edit, :update]
-    before_action :destroy_adventures, only: [:destroy]
-    before_action :destroy_character_weapons, only: [:destroy]
+    before_action :destroy_associations, only: [:destroy]
 
     def index
         #byebug
@@ -113,25 +112,16 @@ class CharactersController < ApplicationController
         @weapons = current_user.weapons
     end
 
-    # def destroy_adventures
-    #     @character.adventures.each do |adventure|
-    #         adventure.destroy
-    #     end
-    # end
-
-    def destroy_adventures
+    def destroy_associations
         @character.adventures.destroy_all
+        @character.character_weapons.destroy_all
     end
 
     def set_campaigns
         @campaigns = current_user.campaigns
     end
 
-    def destroy_character_weapons
-        @character.character_weapons.each do |character_weapon|
-            character_weapon.destroy
-        end
-    end
+
     
 
 end
