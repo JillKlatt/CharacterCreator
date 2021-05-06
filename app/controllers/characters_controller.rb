@@ -113,10 +113,14 @@ class CharactersController < ApplicationController
         @weapons = current_user.weapons
     end
 
+    # def destroy_adventures
+    #     @character.adventures.each do |adventure|
+    #         adventure.destroy
+    #     end
+    # end
+
     def destroy_adventures
-        @character.adventures.each do |adventure|
-            adventure.destroy
-        end
+        @character.adventures.destroy_all
     end
 
     def set_campaigns

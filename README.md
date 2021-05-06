@@ -11,6 +11,8 @@ Fork and clone this repo
 <br />
 Run ```bundle install```
 <br />
+Run ```rails db:seed``` to create Classes and Races
+<br />
 Run ```rails s``` and use localhost:3000 on your browser
 
 ### Sample Demo Video:
