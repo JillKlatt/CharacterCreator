@@ -1,4 +1,4 @@
-<%= form_for @campaign do |f|%>
+<%= form_with @campaign do |f|%>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
     <%= f.label :schedule %>
@@ -8,6 +8,5 @@
     <%= f.label :race, "Add Characters: (optional)" %><br>
     <%= f.collection_check_boxes :character_ids, @characters, :id, :name %>  <br>
                     <br>
-
     <%= f.submit %>
 <% end %>
