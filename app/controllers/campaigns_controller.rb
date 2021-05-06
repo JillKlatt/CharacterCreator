@@ -16,7 +16,6 @@ class CampaignsController < ApplicationController
 
     def create 
         @campaign = Campaign.new(campaign_params)
-        @campaign.user_id = current_user.id
         # @character = Character.new(campaign_params[:character_attributes])
         if @campaign.save
             redirect_to campaigns_path
