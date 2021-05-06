@@ -1,4 +1,4 @@
-class AddUserIdToCharacter < ActiveRecord::Migration[6.1]
+class AddUserIdToCharacters < ActiveRecord::Migration[6.1]
   def change
     add_reference :characters, :user, foreign_key: true
   end
