@@ -61,6 +61,7 @@ gem "faker"
 # For Flash messages:
 gem "rack-flash3"
 # For our Google login option:
+gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 # Hides Client Info:
