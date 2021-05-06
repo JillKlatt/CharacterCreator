@@ -4,7 +4,7 @@
     <%= f.label :schedule %>
     <%= f.text_field :schedule %><br>
     <%= f.label :description %>
-    <%= f.text_area :description %><br><br>
+    <%= f.text_area :description, :size=>"50" %><br><br>
     <%= f.label :race, "Add Characters: (optional)" %><br>
     <%= f.collection_check_boxes :character_ids, @characters, :id, :name %>  <br>
                     <br>
