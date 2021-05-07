@@ -6,10 +6,11 @@
         <% if @weapons.blank? %>
         <h3>You don't have any weapons yet!  </h3><%= link_to 'Create one now?', new_character_weapon_path(@character) %>
         <% else %>
+
              <%= form_with model: @character do |f| %>
-            <%= f.collection_check_boxes :weapon_ids, @weapons, :id, :name %><br>
-            <%= f.submit "Update Weapons" %>
-            <% end %>
+                <%= f.collection_check_boxes :weapon_ids, @weapons, :id, :name %><br>
+                <%= f.submit "Update Weapons" %>
+                <% end %>
         <% end %>
             <%= form_with model: @character do |f| %>
                 <% @character.character_weapons.each do |character_weapon| %>
