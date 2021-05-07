@@ -20,18 +20,18 @@ module ApplicationHelper
         end
     end 
 
-    def find_dm
-        @campaign.adventures.each do |adventure|
-            if adventure.role == true
-            @found_character_id = adventure.character_id
-                #byebug
-            end
-                if !@found_character_id.nil?
-                    @dm = Character.find_by(id: @found_character_id)
-                    return "The DM for this fine game is: #{@dm.name}"
-                end
-            end
+    # def find_dm
+    #     @campaign.adventures.each do |adventure|
+    #         if adventure.role == true
+    #         @found_character_id = adventure.character_id
+    #             #byebug
+    #         end
+    #             if !@found_character_id.nil?
+    #                 @dm = Character.find_by(id: @found_character_id)
+    #                 return "The DM for this fine game is: #{@dm.name}"
+    #             end
+    #         end
 
-    end
+    # end
     
 end

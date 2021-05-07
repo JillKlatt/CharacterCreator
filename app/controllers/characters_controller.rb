@@ -75,7 +75,7 @@ class CharactersController < ApplicationController
 
     def search
         @characters = current_user.characters.search(params[:name])
-        binding.pry
+        # binding.pry
         render :index
     end
 

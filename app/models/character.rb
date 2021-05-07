@@ -13,10 +13,8 @@ class Character < ApplicationRecord
     validates :race, presence: true
     validates :category, presence: true
 
-    scope :search, -> (query) { self.where("name LIKE ?", "%#{query}") }
+    # scope :search, -> (query) { self.where("name LIKE ?", "%#{query}%") }
     scope :last_updated, -> { order updated_at: :desc }
-    
-    
 
 
     # accepts_nested_attributes_for :race
