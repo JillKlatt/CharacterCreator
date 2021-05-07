@@ -56,7 +56,13 @@ TO DO
 
 
 
-
+5/6 SEARCH FUNCTION
+<!--
+        <%= form_with(url: characters_search_path, method: 'get', class: 'd-flex') do |f|%>
+          <%= f.text_field :title, class: "form-control me-2", placeholder: "Search Characters" %>
+          <%= f.submit :Search, class: "btn btn-outline-success" %>
+        <% end %> 
+-->
 
 
 
