@@ -6,9 +6,8 @@ class User < ApplicationRecord
     has_many :adventures, through: :characters
     has_many :campaigns
     has_many :weapons
-    validates :email, uniqueness: true
+    validates :email, uniqueness: true, presence: true
     validates :name, presence: true
-    validates :email, presence: true
     # validates :password, length: {minimum: 2}
     # validates :password, confirmation: { case_sensitive_true }
 
