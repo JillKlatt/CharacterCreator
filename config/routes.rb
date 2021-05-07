@@ -25,7 +25,8 @@ Rails.application.routes.draw do
 
   delete '/logout', to: "sessions#logout"
 
-  get '/characters/search', to: 'characters#search', as: 'characters_search'
+  # get '/search', to: 'characters#search', as: 'search'
+  # get '/characters/search', to: 'characters#search', as: 'characters#search
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
 
