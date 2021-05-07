@@ -10,7 +10,6 @@ class CharactersController < ApplicationController
     before_action :destroy_associations, only: [:destroy]
 
     def index
-        #byebug
        if @campaign
             @characters = @campaign.characters
        else
@@ -32,7 +31,6 @@ class CharactersController < ApplicationController
             @character = @campaign.characters.build(character_params)
             @campaign.characters << @character
             if @character.save
-                #byebug
                 redirect_to campaign_path(@campaign)
             else 
                 render :new
@@ -47,8 +45,6 @@ class CharactersController < ApplicationController
             end
         end
     end
-
-
 
     def edit                              
     end
