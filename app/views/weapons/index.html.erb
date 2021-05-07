@@ -1,5 +1,11 @@
-<h2>All Yo Weapons</h2>
 
-<% @weapons.each do |weapon|%>
-<%= link_to weapon.name, weapon_path(weapon) %> deals <%= weapon.damage %><br>
+<% if @weapons.count > 0%>
+    <h2>All Your Weapons:</h2>
+
+    <% @weapons.each do |weapon|%>
+    <%= link_to weapon.name, weapon_path(weapon) %> deals <%= weapon.damage %><br>
+    <% end %>
+<% else %>
+    <h2>You don't have any weapons yet!</h2>
+    <%= link_to "Create One Now?", new_weapon_path %>
 <% end %>
