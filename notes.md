@@ -64,7 +64,10 @@ TO DO
         <% end %> 
 -->
 
-
+5/7 FIND DM METHOD
+<!--
+<h3><% find_dm %></h3>
+-->
 
 
 
