@@ -20,6 +20,18 @@ module ApplicationHelper
         end
     end 
 
+    def if_errors(model)
+        if model.errors.any? 
+            render partial: 'errors/errors', locals: {model: model} 
+        end
+    end
+
+    def display_errors(model)
+        model.errors.full_messages.each do |e|
+            content_tag(:li, e) #after class/id/whatever
+        end.join.html_safe 
+    end
+
     # def find_dm
     #     @campaign.adventures.each do |adventure|
     #         if adventure.role == true
