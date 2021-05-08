@@ -27,10 +27,9 @@ class CharactersController < ApplicationController
 
     def create
         if @campaign
-
             @character = @campaign.characters.build(character_params)
-            @campaign.characters << @character
             if @character.save
+                @campaign.characters << @character
                 redirect_to campaign_path(@campaign)
             else 
                 render :new
@@ -51,10 +50,12 @@ class CharactersController < ApplicationController
 
     def update
 
-        @character.update(character_params)
-
-        if @character.valid?
-            redirect_to character_path(@character)
+     
+        if @character.update(character_params)
+            # redirect_to character_path(@character)
+            # redirect_to '/characters/#{id}'
+            # Will know to direct to show
+            redirect_to @character
         else
             render :edit
         end
