@@ -1,5 +1,5 @@
 <br>
 <br>
-<%= render partial: 'errors/errors', locals: {model: @campaign} %>
+<%= if_errors(@campaign) %>
 
 <%= render partial: 'form', locals: {model: @campaign} %>
