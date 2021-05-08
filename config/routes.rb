@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :characters do
-    resources :weapons, only: [:index, :new, :create]
+    resources :weapons, only: [:index, :new, :create] # shallow: true (Create three nested routes, and four non-nested routes)
     resource :character_weapons, only: [:create]
   end
 
