@@ -1,4 +1,4 @@
-<%= render partial: 'errors/errors', locals: {model: @character} %>
+<%= if_errors(@character) %>
 
 <%= render partial: 'form', locals: {model: @character} %>
 
