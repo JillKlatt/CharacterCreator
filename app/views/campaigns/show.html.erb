@@ -13,6 +13,8 @@
 
 <% if_dm(@campaign)%>
 <h4><%= find_dm %></h4>
+<br>
+<br>
 
 <!-- END FIND DM-->
 
@@ -28,7 +30,10 @@
     </p>
     <div class="collapse" id="collapseExample">
     <div class="card card-body">
-    <%=if_characters(@campaign)%>
+    <!--<%=if_characters(@campaign)%>-->
+        <% @campaign.characters.each do |character|%>
+            <%= link_to character.name, character_path(character)%>
+        <% end %>
     </div>
     </div>
     </p>
