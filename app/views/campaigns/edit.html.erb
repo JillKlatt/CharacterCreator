@@ -16,7 +16,6 @@
         <h3>You don't have any characters yet!  </h3><%= link_to 'Create one now?', new_campaign_character_path(@campaign) %>
         <% end %>
 
-        <%display_characters(@campaign)%>
         
         <h3>Select Dungeon Master for this campaign:</h3>
     <%= form_with model: @campaign do |f| %>
