@@ -32,18 +32,34 @@ module ApplicationHelper
         end.join.html_safe 
     end
 
-    # def find_dm
-    #     @campaign.adventures.each do |adventure|
-    #         if adventure.role == true
-    #         @found_character_id = adventure.character_id
-    #             #byebug
-    #         end
-    #             if !@found_character_id.nil?
-    #                 @dm = Character.find_by(id: @found_character_id)
-    #                 return "The DM for this fine game is: #{@dm.name}"
-    #             end
-    #         end
+    def if_dm(model)
+        if model.adventures.each do |adventure|
+            if adventure.role == true
+                @found_character_id = adventure.character_id
+                end
+            end
+        end
+    end
 
-    # end
+    def find_dm
+        if !@found_character_id.nil?
+            @dm = Character.find_by(id: @found_character_id)
+            return "The DM for this fine game is: #{@dm.name}"
+        end
+    end
+
+    def display_characters(model)
+                model.characters.each do |character|
+                    content_tag(:link_to, character_path(character))
+                    # byebug
+                #link_to character.name, character_path(character)
+        end.join
+    end
+
+    def if_characters(model)
+        if model.characters.count > 0
+            display_characters(model)
+        end
+    end
     
 end
