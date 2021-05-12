@@ -15,6 +15,8 @@
         <% else %>
         <h3>You don't have any characters yet!  </h3><%= link_to 'Create one now?', new_campaign_character_path(@campaign) %>
         <% end %>
+
+        <%display_characters(@campaign)%>
         
         <h3>Select Dungeon Master for this campaign:</h3>
     <%= form_with model: @campaign do |f| %>
@@ -29,13 +31,4 @@
 
 
 <h5><%= link_to "Create New Character for this Campaign", new_campaign_character_path(@campaign)%></h5>
-<p>
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="/campaigns/:campaign_id/characters/new" aria-expanded="false" aria-controls="collapseExample">
-    Current Characters
-  </button>
-  </p>
-  <div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-  </div>
-</div>
+
